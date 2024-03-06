@@ -1,0 +1,39 @@
+import React, { useState } from "react";
+import { TextField, Button } from '@mui/material';
+
+const UploadSheet: React.FC = () => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      setSelectedFile(files[0]);
+    }
+  };
+
+  return (
+    <div>
+      <h4 className="font-light text-2xl mb-6">Upload excel sheet below</h4>
+      <TextField
+        label="Upload File"
+        type="file"
+        InputLabelProps={{
+          shrink: true
+        }}
+        onChange={handleFileChange}
+        color="primary"
+      />
+      {
+        selectedFile &&
+        <p>
+          <span className="text-xs">Selected file:</span> {selectedFile.name}
+        </p>
+      }
+      <div className="mt-3">
+        <Button variant="contained">Start Process</Button>
+      </div>
+    </div>
+  );
+};
+
+export default UploadSheet;
