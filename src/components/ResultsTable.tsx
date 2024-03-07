@@ -1,47 +1,57 @@
-import React from 'react';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
-  }
-];
-
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 25 },
-  { id: 6, lastName: 'Melisandre', firstName: "Red Witch", age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import React, {useEffect, useState} from 'react';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
   selectedFile: File | null;
 }
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
+  const [data, setData] = useState<any[]>([]);
+  const [columns, setColumns] = useState<GridColDef[]>([]);
+  useEffect(() => {
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const binaryString = event.target?.result;
+        if (typeof binaryString === 'string') {
+          // Set rows
+          const workbook = XLSX.read(binaryString, { type: 'binary' });
+          const worksheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[worksheetName];
+          const parsedData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+          let tableData = parsedData.slice(1);
+          const headers: any = parsedData[0];
+          tableData = tableData.map((row: any, index: number) => {
+            const obj: any = {};
+            headers.forEach((header: string, index: number) => {
+              obj[header] = row[index];
+            });
+            obj["id"] = index;
+            return obj
+          });
+          console.warn()
+          setData(tableData);
+
+          // Set headers
+          const tableHeaders = headers.map((header: string) => {
+            const obj: any = {};
+            obj["field"] = header;
+            // TODO: When using actual form, you will need to split the name below using delimiter selected to get the actual header name
+            obj["headerName"] = header;
+            obj["width"] = 120;
+            return obj;
+          });
+          setColumns(tableHeaders);
+        }
+      };
+      reader.readAsBinaryString(selectedFile);
+    }
+  }, [selectedFile]);
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         initialState={{
           pagination: {
