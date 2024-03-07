@@ -6,7 +6,7 @@ import './App.css';
 const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  const handleFileChange = (file: File | null) => {
+  const handleFileChange = (file: File) => {
     setSelectedFile(file);
     // Scroll to the ResultsTable section
     const resultsTableSection = document.getElementById('results-table');

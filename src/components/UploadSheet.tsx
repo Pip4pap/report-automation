@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, TextField, styled } from '@mui/material';
+import { TextField, styled } from '@mui/material';
 
 const CustomTextField = styled(TextField)({
   '& input:valid + fieldset': {
@@ -20,7 +20,7 @@ const CustomTextField = styled(TextField)({
 });
 
 interface UploadSheetProps {
-  onFileChange: (file: File | null) => void;
+  onFileChange: (file: File) => void;
 }
 
 const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
@@ -30,7 +30,7 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       setSelectedFile(files[0]);
-      onFileChange(selectedFile)
+      onFileChange(files[0])
     }
   };
 
