@@ -42,6 +42,7 @@ const UploadSheet: React.FC = () => {
         color="primary"
         required
         id="validation-outlined-input"
+        inputProps={{ accept: '.xlsx, .xls, .csv'}}
       />
       {
         selectedFile &&
