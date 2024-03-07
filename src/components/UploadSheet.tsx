@@ -19,13 +19,18 @@ const CustomTextField = styled(TextField)({
   }
 });
 
-const UploadSheet: React.FC = () => {
+interface UploadSheetProps {
+  onFileChange: (file: File | null) => void;
+}
+
+const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       setSelectedFile(files[0]);
+      onFileChange(selectedFile)
     }
   };
 
@@ -50,14 +55,14 @@ const UploadSheet: React.FC = () => {
           <span className="text-xs">Selected file:</span> {selectedFile.name}
         </p>
       }
-      <div className="mt-3">
+      {/* <div className="mt-3">
         <Button
           variant="contained"
           disabled={!selectedFile}
         >
           View Results
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

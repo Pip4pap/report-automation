@@ -33,7 +33,11 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-const ResultsTable: React.FC = () => {
+interface ResultsTableProps {
+  selectedFile: File | null;
+}
+
+const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
