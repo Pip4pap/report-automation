@@ -51,7 +51,12 @@ const UploadSheet: React.FC = () => {
         </p>
       }
       <div className="mt-3">
-        <Button variant="contained">Start Process</Button>
+        <Button
+          variant="contained"
+          disabled={!selectedFile}
+        >
+          View Results
+        </Button>
       </div>
     </div>
   );
