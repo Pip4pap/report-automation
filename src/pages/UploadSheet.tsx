@@ -1,5 +1,23 @@
 import React, { useState } from "react";
-import { TextField, Button } from '@mui/material';
+import { Button, TextField, styled } from '@mui/material';
+
+const CustomTextField = styled(TextField)({
+  '& input:valid + fieldset': {
+    borderColor: '#E0E3E7',
+    borderWidth: 1,
+  },
+  '& input:invalid + fieldset': {
+    borderColor: '#E0E3E7',
+    borderWidth: 1,
+  },
+  '& input:valid:focus + fieldset': {
+    borderLeftWidth: 4,
+    padding: '4px !important', // override inline-style
+  },
+  '& #validation-outlined-input-label': {
+    color: '#E0E3E7'
+  }
+});
 
 const UploadSheet: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -14,7 +32,7 @@ const UploadSheet: React.FC = () => {
   return (
     <div>
       <h4 className="font-light text-2xl mb-6">Upload excel sheet below</h4>
-      <TextField
+      <CustomTextField
         label="Upload File"
         type="file"
         InputLabelProps={{
@@ -22,6 +40,8 @@ const UploadSheet: React.FC = () => {
         }}
         onChange={handleFileChange}
         color="primary"
+        required
+        id="validation-outlined-input"
       />
       {
         selectedFile &&
