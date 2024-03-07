@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import UploadSheet from './pages/UploadSheet';
+import UploadSheet from './components/UploadSheet';
+import ResultsTable from './components/ResultsTable';
 import './App.css';
 
 const App: React.FC = () => {
@@ -14,6 +15,10 @@ const App: React.FC = () => {
           </Routes>
         </Router>
       </header>
+      <section>
+        <h2 className="font-bold text-3xl my-3">Results</h2>
+        <ResultsTable />
+      </section>
     </div>
   );
 }
