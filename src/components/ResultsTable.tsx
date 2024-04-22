@@ -4,9 +4,10 @@ import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
   selectedFile: File | null;
+  onTableDataChange: (data: any[]) => void;
 }
 
-const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
+const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataChange }) => {
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<GridColDef[]>([]);
 
@@ -46,6 +47,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
             return obj
           });
           setData(tableData);
+          onTableDataChange(tableData);
 
           // Set headers
           const tableHeaders = headers.map((header: string) => {
@@ -62,8 +64,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
             width: 200,
             renderCell: (params: any) => (
               <div>
-                <button onClick={() => handlePreview(params.row)} className="mr-5 text-blue">Preview</button>
-                <button onClick={() => handleDownload(params.row)} className="text-green">Download</button>
+                <button onClick={() => handlePreview(params.row)} className="mr-5 text-primary">Preview</button>
+                <button onClick={() => handleDownload(params.row)} className="text-success">Download</button>
               </div>
             ),
           });
@@ -72,7 +74,9 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
       };
       reader.readAsBinaryString(selectedFile);
     }
-  }, [selectedFile]);
+  }, [selectedFile, onTableDataChange]);
+
+
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
