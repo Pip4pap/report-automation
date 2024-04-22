@@ -9,6 +9,21 @@ interface ResultsTableProps {
 const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<GridColDef[]>([]);
+
+  // Define handlePreview function to handle the Preview button click
+  const handlePreview = (row: any) => {
+    // Handle preview for the selected row
+    console.log('Preview:', row);
+    // Add your preview logic here
+  };
+
+  // Define handleDownload function to handle the Download button click
+  const handleDownload = (row: any) => {
+    // Handle download for the selected row
+    console.log('Download:', row);
+    // Add your download logic here
+  };
+
   useEffect(() => {
     if (selectedFile) {
       const reader = new FileReader();
