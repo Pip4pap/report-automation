@@ -45,7 +45,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
             obj["id"] = index;
             return obj
           });
-          console.warn()
           setData(tableData);
 
           // Set headers
@@ -56,6 +55,17 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
             obj["headerName"] = header;
             obj["width"] = 120;
             return obj;
+          });
+          tableHeaders.push({
+            field: 'actions',
+            headerName: 'Actions',
+            width: 200,
+            renderCell: (params: any) => (
+              <div>
+                <button onClick={() => handlePreview(params.row)} className="mr-5 text-blue">Preview</button>
+                <button onClick={() => handleDownload(params.row)} className="text-green">Download</button>
+              </div>
+            ),
           });
           setColumns(tableHeaders);
         }
@@ -74,7 +84,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile }) => {
           },
         }}
         pageSizeOptions={[5, 10, 20, 50]}
-        checkboxSelection
+        checkboxSelection={false}
       />
     </div>
   )
