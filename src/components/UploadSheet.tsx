@@ -55,14 +55,6 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
           <span className="text-xs">Selected file:</span> {selectedFile.name}
         </p>
       }
-      {/* <div className="mt-3">
-        <Button
-          variant="contained"
-          disabled={!selectedFile}
-        >
-          View Results
-        </Button>
-      </div> */}
     </div>
   );
 };
