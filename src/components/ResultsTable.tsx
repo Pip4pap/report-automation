@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import PreviewPopup from './PreviewPopup';
 import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
@@ -9,13 +10,14 @@ interface ResultsTableProps {
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataChange }) => {
   const [data, setData] = useState<any[]>([]);
+  const [selectedRow, setSelectedRow] = useState<any>(null);
   const [columns, setColumns] = useState<GridColDef[]>([]);
+  const [openDialog, setOpenDialog] = useState(false);
 
   // Define handlePreview function to handle the Preview button click
   const handlePreview = (row: any) => {
-    // Handle preview for the selected row
-    console.log('Preview:', row);
-    // Add your preview logic here
+    setOpenDialog(true);
+    setSelectedRow(row);
   };
 
   // Define handleDownload function to handle the Download button click
@@ -23,6 +25,10 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     // Handle download for the selected row
     console.log('Download:', row);
     // Add your download logic here
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   useEffect(() => {
@@ -76,7 +82,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     }
   }, [selectedFile, onTableDataChange]);
 
-
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
@@ -89,6 +94,11 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
         }}
         pageSizeOptions={[5, 10, 20, 50]}
         checkboxSelection={false}
+      />
+      <PreviewPopup
+        open={openDialog}
+        onClose={handleCloseDialog}
+        rowData={selectedRow}
       />
     </div>
   )
