@@ -3,12 +3,14 @@
   padding: 5pt;
   text-indent: 0;
   border: 5pt solid black;
+  width: 663.75pt;
 }
 
 #report-display-inner-wrap {
   margin: 0;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 24pt;
+  padding-right: 24pt;
+  width: 644.7675pt;
   padding-top: 10pt;
   padding-bottom: 10pt;
   text-indent: 0;

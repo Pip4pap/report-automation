@@ -49,7 +49,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 paddingTop: '4pt',
                 paddingLeft: '6pt',
               }}>
-              TERM&nbsp;..................................................
+              TERM&nbsp;.............................................................
               <div className="flex">YEAR 20 ..............&nbsp;&nbsp;DATE.......................</div>
             </div>
             <p
@@ -60,7 +60,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               }}
             >
               PUPIL’S NAMES................................................................................................
-              CLASS........ENROLMENT.........</p>
+              CLASS........ ENROLMENT.........</p>
             <p style={{ textIndent: '0pt', textAlign: 'left' }} />
             <div
               className="s2 flex justify-between"
@@ -82,7 +82,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 textAlign: 'left'
               }}
             >LEARNER IDENTIFICATION NUMBER (LIN)
-              ......................................................................................................</p>
+              .......................................................................................................</p>
           </section>
 
           {/* TABLE */}
