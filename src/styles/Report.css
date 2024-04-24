@@ -2,7 +2,7 @@
   margin: 0;
   padding: 5pt;
   text-indent: 0;
-  border: 5pt solid black;
+  border: 5pt solid #AC4888;
   width: 663.75pt;
 }
 
@@ -14,15 +14,15 @@
   padding-top: 10pt;
   padding-bottom: 10pt;
   text-indent: 0;
-  border: 2pt solid black;
+  border: 2pt solid #AC4888;
 }
 
 #report-header {
   display: flex;
+  color: #AC4888 !important;
 }
 
 h1 {
-  color: #010202;
   font-family: "Times New Roman", serif;
   font-style: normal;
   font-weight: bold;
@@ -31,7 +31,6 @@ h1 {
 }
 
 h2 {
-  color: #010202;
   font-family: "Times New Roman", serif;
   font-style: normal;
   font-weight: bold;
