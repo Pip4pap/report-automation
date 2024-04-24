@@ -1,5 +1,7 @@
 import React from 'react';
 import Dialog from '@mui/material/Dialog';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 import '../styles/Report.css';
 import logo from '../images/logo.png';
 
@@ -16,6 +18,18 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
       onClose={onClose}
       fullScreen
     >
+      <IconButton
+        onClick={onClose}
+        aria-label="close"
+        sx={{
+          position: 'absolute',
+          right: 8,
+          top: 1,
+          color: (theme) => theme.palette.grey[700],
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
       <div id="report-display-outer-wrap">
         <div id="report-display-inner-wrap" className="flex flex-col items-center justify-center">
           {/* HEADER */}
