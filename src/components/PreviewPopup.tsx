@@ -103,11 +103,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
           </section>
 
           {/* TABLE */}
-          <table
-            style={{ borderCollapse: 'collapse' }}
-            cellSpacing="0"
-            className="w-full"
-          >
+          <table className="w-full">
             <thead>
             <tr>
                 <td
