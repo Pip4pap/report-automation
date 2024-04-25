@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import PreviewPopup from './PreviewPopup';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf'
 import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
@@ -22,9 +24,23 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
 
   // Define handleDownload function to handle the Download button click
   const handleDownload = (row: any) => {
-    // Handle download for the selected row
-    console.log('Download:', row);
-    // Add your download logic here
+    setSelectedRow(row);
+    setOpenDialog(true);
+    setTimeout(() => {
+      const container = document.getElementById("report-display-outer-wrap");
+      if (container) {
+        html2canvas(container).then((canvas) => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF();
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+          console.log(pdfWidth, pdfHeight);
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('downloaded-file.pdf'); 
+          // Specify the name of the downloaded PDF file
+        });
+      }
+    }, 2000);
   };
 
   const handleCloseDialog = () => {
@@ -73,7 +89,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
                 <button onClick={() => handlePreview(params.row)} className="mr-5 text-primary">Preview</button>
                 <button onClick={() => handleDownload(params.row)} className="text-success">Download</button>
               </div>
-            ),
+            )
           });
           setColumns(tableHeaders);
         }
