@@ -108,8 +108,8 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             cellSpacing="0"
             className="w-full"
           >
-            <tbody>
-              <tr style={{ height: '28pt' }}>
+            <thead>
+            <tr>
                 <td
                   style={{
                     width: '21pt',
@@ -124,7 +124,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width: '101pt',
+                    width: '111pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.5pt',
                     borderTopColor: '#231F20',
@@ -302,6 +302,8 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   </p>
                 </td>
               </tr>
+            </thead>
+            <tbody>
               <tr style={{ height: '29pt' }}>
                 <td
                   style={{ width:'21pt',
@@ -483,9 +485,18 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   borderRightWidth: '1.5pt',
                   borderRightColor: '#231F20'}}
                 >
-                  <p className="s10"
-                    style={{ paddingTop: '3pt', paddingLeft: '5pt', paddingRight: '36pt', textIndent: '0pt', textAlign: 'left' }}>LITERACY 1
-                    (READING)</p>
+                  <p
+                    className="s10"
+                    style={{
+                      paddingTop: '3pt',
+                      paddingLeft: '5pt',
+                      paddingRight: '30pt',
+                      textIndent: '0pt',
+                      textAlign: 'left'
+                    }}
+                  >
+                    LITERACY 1 (READING)
+                  </p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
