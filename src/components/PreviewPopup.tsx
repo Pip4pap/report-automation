@@ -304,7 +304,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ height: '29pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt',
                   borderTopStyle: 'solid',
@@ -444,7 +444,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '36pt' }}>
+              <tr>
                 <td
                   style={{
                     width: '21pt',
@@ -589,7 +589,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '36pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -722,7 +722,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '29pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -854,7 +854,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '34pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -987,7 +987,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '34pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -1120,7 +1120,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '25pt' }}>
+              <tr>
                 <td
                   rowSpan={2}
                   style={{
@@ -1263,7 +1263,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '23pt' }}>
+              <tr>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -1355,7 +1355,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '23pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -1487,7 +1487,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
               </tr>
-              <tr style={{ height: '26pt' }}>
+              <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1.5pt',
                   borderTopColor: '#231F20',
@@ -1608,7 +1608,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
 
           {/* CONCLUSION */}
           <section className="w-full conclusion">
-            <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
             <p style={{ paddingTop: '10pt', paddingLeft: '9pt', textIndent: '0pt', textAlign: 'left' }}>CLASS TEACHER’S COMMENT ON LIFE
               SKILLS AND VALUES (INDICATORS)......................................................................</p>
             <p style={{ paddingTop: '8pt', paddingLeft: '9pt', textIndent: '0pt', textAlign: 'left' }}>
