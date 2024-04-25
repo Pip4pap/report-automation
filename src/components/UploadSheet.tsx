@@ -36,7 +36,9 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
 
   return (
     <div>
-      <h4 className="font-light text-2xl mb-6">Upload excel sheet below</h4>
+      <h4 className="font-light text-2xl mb-6">
+        Upload excel sheet below
+      </h4>
       <CustomTextField
         label="Upload File"
         type="file"

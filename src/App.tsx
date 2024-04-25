@@ -21,7 +21,9 @@ const App: React.FC = () => {
   }, []);
 
   const downloadAllReports = () => {
-    console.log("Downloading all files")
+    if (rowsInTable.length > 0) {
+      console.log("Downloading all files")
+    }
   }
 
   return (
