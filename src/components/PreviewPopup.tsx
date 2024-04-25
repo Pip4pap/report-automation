@@ -105,16 +105,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
           {/* TABLE */}
           <table className="w-full">
             <thead>
-            <tr>
+              <tr>
                 <td
                   style={{
                     width: '21pt',
                     borderBottomStyle: 'solid',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20'
+                    borderRightColor: '#AC4888'
                   }}>
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -123,16 +123,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '111pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                   >
@@ -148,16 +148,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width:'39pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                   >
@@ -172,16 +172,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   style={{ width:'39pt',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'double',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20',
+                  borderRightColor: '#AC4888',
                   verticalAlign: 'middle'
                 }}
                 >
@@ -196,16 +196,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '39pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                 >
@@ -224,16 +224,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '46pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                 >
@@ -252,16 +252,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '180pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                 >
@@ -277,16 +277,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '50pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'double',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20',
+                    borderRightColor: '#AC4888',
                     verticalAlign: 'middle'
                   }}
                 >
@@ -305,16 +305,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   style={{ width:'21pt',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s9"
@@ -328,16 +328,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s10" style={{ paddingTop: '7pt', paddingLeft: '5pt', textIndent: '0pt', textAlign: 'left' }}>MATHEMATICS</p>
@@ -346,31 +346,31 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   style={{ width:'39pt',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -378,31 +378,31 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   style={{ width:'39pt',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -411,31 +411,31 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '180pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'solid',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20'}}
+                    borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -446,16 +446,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '21pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'solid',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20'
+                    borderRightColor: '#AC4888'
                   }}
                 >
                   <p
@@ -470,16 +470,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s10"
@@ -496,91 +496,91 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -588,16 +588,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s9"
@@ -613,107 +613,107 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '5pt', textIndent: '0pt', textAlign: 'left' }}>LITERACY II
                     (WRITING)</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -721,16 +721,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s9"
@@ -746,106 +746,106 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '5pt', textIndent: '0pt', textAlign: 'left' }}>ENGLISH</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -853,16 +853,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s9"
@@ -878,107 +878,107 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '5pt', textIndent: '0pt', textAlign: 'left' }}>LOCAL LANGUAGE
                     (LUGANDA)</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -986,16 +986,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                   <p
@@ -1011,107 +1011,107 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '6pt', textIndent: '0pt', lineHeight: '14pt',textAlign: 'left' }}>
                     CPA (MUSIC/ ART/ CRAFTS)</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -1123,16 +1123,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '21pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'solid',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20'
+                    borderRightColor: '#AC4888'
                   }}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
@@ -1153,16 +1153,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '101pt',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1pt',
-                    borderTopColor: '#231F20',
+                    borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
                     borderLeftWidth: '1pt',
-                    borderLeftColor: '#231F20',
+                    borderLeftColor: '#AC4888',
                     borderBottomStyle: 'solid',
                     borderBottomWidth: '1pt',
-                    borderBottomColor: '#231F20',
+                    borderBottomColor: '#AC4888',
                     borderRightStyle: 'solid',
                     borderRightWidth: '1pt',
-                    borderRightColor: '#231F20'
+                    borderRightColor: '#AC4888'
                   }}
                 >
                   <p className="s10"
@@ -1170,91 +1170,91 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -1262,91 +1262,91 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -1354,16 +1354,16 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p
                     className="s9"
@@ -1379,106 +1379,106 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s10" style={{ paddingTop: '2pt', paddingLeft: '6pt', textIndent: '0pt', textAlign: 'left' }}>PE</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
@@ -1486,115 +1486,115 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
               <tr>
                 <td
                   style={{ width:'21pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p className="s9" style={{ paddingTop: '5pt', paddingLeft: '9pt', textIndent: '0pt', textAlign: 'left' }}>TOTAL</p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'39pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'46pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'180pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
                 <td
                   style={{ width:'50pt', borderTopStyle: 'solid',borderTopWidth: '1pt',
-                  borderTopColor: '#231F20',
+                  borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1pt',
-                  borderLeftColor: '#231F20',
+                  borderLeftColor: '#AC4888',
                   borderBottomStyle: 'solid',
                   borderBottomWidth: '1pt',
-                  borderBottomColor: '#231F20',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1pt',
-                  borderRightColor: '#231F20'}}
+                  borderRightColor: '#AC4888'}}
                 >
                   <p style={{ textIndent: '0pt', textAlign: 'left' }}><br /></p>
                 </td>
