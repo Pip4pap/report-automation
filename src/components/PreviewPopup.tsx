@@ -2,6 +2,7 @@ import React from 'react';
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+// import Button from '@mui/material/Button';
 import '../styles/Report.css';
 import logo from '../images/logo.png';
 
@@ -17,6 +18,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
       open={open}
       onClose={onClose}
       fullScreen
+      id="preview-popup"
     >
       <IconButton
         onClick={onClose}
@@ -1628,7 +1630,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             </p>
             <h3
               className="mt-3"
-              style={{ paddingLeft: '69pt', textIndent: '0pt', lineHeight: '11pt', textAlign: 'left' }}
+              style={{ textIndent: '0pt', lineHeight: '11pt', textAlign: 'center' }}
             >
               This report is not valid without the Headtacher’s stamp and signature
             </h3>
