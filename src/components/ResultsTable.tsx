@@ -32,15 +32,16 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
         html2canvas(container).then((canvas) => {
           const imgData = canvas.toDataURL('image/png');
           const pdf = new jsPDF();
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-          console.log(pdfWidth, pdfHeight);
+          // const pdfWidth = pdf.internal.pageSize.getWidth();
+          // const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+          const pdfWidth = 210;
+          const pdfHeight = 297;
           pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
           pdf.save('downloaded-file.pdf'); 
           // Specify the name of the downloaded PDF file
         });
       }
-    }, 2000);
+    }, 1000);
   };
 
   const handleCloseDialog = () => {
