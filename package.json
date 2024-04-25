@@ -29,12 +29,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "homepage": "https://Pip4pap.github.io/report-automation",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "homepage": "https://Pip4pap.github.io/report-automation"
   },
   "eslintConfig": {
     "extends": [
