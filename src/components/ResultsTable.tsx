@@ -30,7 +30,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       const container = document.getElementById("report-display-outer-wrap");
       if (container) {
         html2canvas(container).then((canvas) => {
-          const imgData = canvas.toDataURL('image/png');
+          const imgData = canvas.toDataURL('image/jpeg', 1);
           const pdf = new jsPDF();
           // const pdfWidth = pdf.internal.pageSize.getWidth();
           // const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
