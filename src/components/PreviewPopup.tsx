@@ -60,6 +60,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
 
           {/* FIRST INFORMATION */}
           <section className="mt-2 w-full">
+            {/* Term, date, year */}
             <div
               className="s2 flex justify-between"
               style={{
@@ -75,7 +76,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >II</div>
               </div>
               <div className="flex">
@@ -87,7 +88,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="text-center text-black overflow-hidden"
+                  className="text-center text-black font-normal overflow-hidden"
                 >2024</div>
                 &nbsp;&nbsp;<span className='pr-2'>DATE</span>
                 <div
@@ -97,10 +98,11 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="text-center text-black overflow-hidden"
+                  className="text-center text-black font-normal overflow-hidden"
                 >May 3rd</div>
               </div>
             </div>
+            {/* Pupil's name, class, enrollment */}
             <div
               className="s2 flex justify-between"
               style={{
@@ -117,7 +119,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >Mwebesa Martin</div>
               </div>
               <div className="flex">
@@ -129,7 +131,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >P.4</div>
               </div>
               <div className="flex">
@@ -141,10 +143,11 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >Day</div>
               </div>
             </div>
+            {/* Age, Sex */}
             <div
               className="s2 flex justify-between"
               style={{
@@ -161,7 +164,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >11 years</div>
               </div>
               <div className="flex">
@@ -173,10 +176,11 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >Male</div>
               </div>
             </div>
+            {/* Learner Identification Number */}
             <div
               className="s2 mb-1"
               style={{
@@ -196,7 +200,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomWidth: '2.667px',
                     borderBottomColor: '#AC4888'
                   }}
-                  className="-mt-1 text-center text-black overflow-hidden"
+                  className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >U 003256 / 012</div>
               </div>
             </div>
@@ -2041,6 +2045,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             {/* Class teacher's comment */}
             <div
               style={{ paddingTop: '13.333px', paddingLeft: '12px', textIndent: '0px', textAlign: 'left', lineHeight: '26px' }}
+              className="py-2"
             >
               <span>CLASS TEACHER’S COMMENT ON LIFE SKILLS AND VALUES (INDICATORS)</span>
               <span
@@ -2088,6 +2093,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 lineHeight: '100%',
                 textAlign: 'left'
               }}
+              className="py-2"
             >
               <div className="flex justify-between">
                 <span>PUPIL’S CONDUCT&nbsp;</span>
@@ -2112,6 +2118,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 lineHeight: '100%',
                 textAlign: 'left'
               }}
+              className="py-2"
             >
               <div className="flex justify-between">
                 <span>GENERAL COMMENTS&nbsp;</span>
@@ -2129,12 +2136,13 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             </div>
             {/* Teacher's name and signature */}
             <div
-              className="flex justify-between"
+              className="flex justify-between py-2"
               style={{
                 paddingTop: '8px',
                 paddingLeft: '12px',
                 lineHeight: '100%',
-              }}>
+              }}
+            >
               <div className="flex">
                 <span>TEACHER’S NAME&nbsp;</span>
                 <div
@@ -2173,6 +2181,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 lineHeight: '100%',
                 textAlign: 'left'
               }}
+              className="py-2"
             >
               <div className="flex justify-between">
                 <span>HEADTEACHER’S COMMENT&nbsp;</span>
@@ -2190,7 +2199,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             </div>
             {/* Headteacher's name and signature */}
             <div
-              className="flex justify-between"
+              className="flex justify-between py-2"
               style={{
                 paddingTop: '8px',
                 paddingLeft: '12px',
@@ -2227,7 +2236,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             </div>
             {/* Fees details */}
             <div
-              className="flex justify-between"
+              className="flex justify-between py-2"
               style={{
                 paddingTop: '8px',
                 paddingLeft: '12px',
@@ -2270,6 +2279,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 lineHeight: '100%',
                 textAlign: 'left'
               }}
+              className="py-2"
             >
               <div className="flex justify-between">
                 <span>REQUIREMENTS&nbsp;</span>
@@ -2287,7 +2297,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
             </div>
             {/* Next term dates */}
             <div
-              className="flex justify-between"
+              className="flex justify-between py-2"
               style={{
                 paddingTop: '8px',
                 paddingLeft: '12px',
