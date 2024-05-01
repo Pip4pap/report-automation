@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import PreviewPopup from './PreviewPopup';
-import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
 import jsPDF from 'jspdf'
 import * as XLSX from 'xlsx';
 
@@ -29,16 +29,18 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     setTimeout(() => {
       const container = document.getElementById("report-display-outer-wrap");
       if (container) {
-        html2canvas(container).then((canvas) => {
-          const imgData = canvas.toDataURL('image/jpeg', 1);
+        domtoimage.toPng(container)
+        .then(function (dataUrl) {
+          let img = new Image();
+          img.src = dataUrl;
           const pdf = new jsPDF();
-          // const pdfWidth = pdf.internal.pageSize.getWidth();
-          // const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-          const pdfWidth = 210;
+          const pdfWidth = pdf.internal.pageSize.getWidth();
           const pdfHeight = 297;
-          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-          pdf.save('downloaded-file.pdf'); 
-          // Specify the name of the downloaded PDF file
+          pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('downloaded-file.pdf');
+        })
+        .catch(function (error) {
+            console.error('oops, something went wrong!', error);
         });
       }
     }, 1000);
