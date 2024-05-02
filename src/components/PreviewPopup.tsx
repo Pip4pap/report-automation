@@ -74,7 +74,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     width: '280px',
                     borderBottomStyle: 'dotted',
                     borderBottomWidth: '2.667px',
-                    borderBottomColor: '#AC4888'
+                    borderBottomColor: '#AC4888',
                   }}
                   className="-mt-1 text-center text-black font-normal overflow-hidden"
                 >II</div>
@@ -99,7 +99,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomColor: '#AC4888'
                   }}
                   className="text-center text-black font-normal overflow-hidden"
-                >May 3rd</div>
+                >03-05-2024</div>
               </div>
             </div>
             {/* Pupil's name, class, enrollment */}
@@ -144,7 +144,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomColor: '#AC4888'
                   }}
                   className="-mt-1 text-center text-black font-normal overflow-hidden"
-                >Day</div>
+                >32</div>
               </div>
             </div>
             {/* Age, Sex */}
@@ -201,7 +201,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     borderBottomColor: '#AC4888'
                   }}
                   className="-mt-1 text-center text-black font-normal overflow-hidden"
-                >U 003256 / 012</div>
+                ></div>
               </div>
             </div>
           </section>
@@ -245,6 +245,31 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     style={{ textAlign: 'center' }}
                   >
                     LEARNING AREA
+                  </p>
+                </td>
+                <td
+                  style={{
+                    width: '240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'double',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888',
+                    verticalAlign: 'middle'
+                  }}
+                >
+                  <p
+                    className="s8"
+                    style={{ textAlign: 'center' }}
+                  >
+                    ACHIEVEMENT
                   </p>
                 </td>
                 <td
@@ -352,31 +377,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     END OF TERM SCORES %
                   </p>
                 </td>
-                <td
-                  style={{
-                    width: '240px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'double',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888',
-                    verticalAlign: 'middle'
-                  }}
-                >
-                  <p
-                    className="s8"
-                    style={{ textAlign: 'center' }}
-                  >
-                    ACHIEVEMENT
-                  </p>
-                </td>
+                
                 <td
                   style={{
                     width: '66.667px',
@@ -399,7 +400,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                     className="s5"
                     style={{ textAlign: 'center' }}
                   >
-                    INTITIALS
+                    COMMENT
                   </p>
                 </td>
               </tr>
@@ -462,6 +463,26 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   >
                     MATHEMATICS
                   </p>
+                </td>
+                <td
+                  style={{
+                    width: '240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Not bad
                 </td>
                 <td
                   style={{
@@ -545,26 +566,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width: '240px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Not bad
-                </td>
-                <td
-                  style={{
                     width: '66.667px',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.333px',
@@ -581,7 +582,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  K.D
+                  F.Good
                 </td>
               </tr>
               {/* Literacy I (Reading) */}
@@ -638,6 +639,24 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   >
                     LITERACY I (READING)
                   </p>
+                </td>
+                <td
+                  style={{
+                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  More effort needed
                 </td>
                 <td
                   style={{
@@ -719,24 +738,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  More effort needed
-                </td>
-                <td
-                  style={{
                     width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
@@ -751,7 +752,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  S.D
+                  Good
                 </td>
               </tr>
               {/* Literacy II (Reading) */}
@@ -801,6 +802,24 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 >
                   <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>LITERACY II
                     (WRITING)</p>
+                </td>
+                <td
+                  style={{
+                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Need improvement
                 </td>
                 <td
                   style={{
@@ -882,24 +901,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Need improvement
-                </td>
-                <td
-                  style={{
                     width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
@@ -914,7 +915,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  K.A
+                  V.Good
                 </td>
               </tr>
               {/* English */}
@@ -963,6 +964,24 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   className="text-black text-center align-middle"
                 >
                   <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>ENGLISH</p>
+                </td>
+                <td
+                  style={{
+                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Fair
                 </td>
                 <td
                   style={{
@@ -1044,24 +1063,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Fair
-                </td>
-                <td
-                  style={{
                     width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
@@ -1076,7 +1077,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  M.H
+                  V.Good
                 </td>
               </tr>
               {/* Local Language (Luganda) */}
@@ -1126,6 +1127,24 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 >
                   <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>LOCAL LANGUAGE
                     (LUGANDA)</p>
+                </td>
+                <td
+                  style={{
+                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Excellent
                 </td>
                 <td
                   style={{
@@ -1207,24 +1226,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Excellent
-                </td>
-                <td
-                  style={{
                     width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
@@ -1239,7 +1240,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  N.E
+                  V.Good
                 </td>
               </tr>
               {/* CPA (Music/Art/Crafts) */}
@@ -1288,6 +1289,24 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 >
                   <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '6pt', textIndent: '0px', lineHeight: '14pt',textAlign: 'left' }}>
                     CPA (MUSIC/ ART/ CRAFTS)</p>
+                </td>
+                <td
+                  style={{
+                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Good
                 </td>
                 <td
                   style={{
@@ -1369,24 +1388,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Good
-                </td>
-                <td
-                  style={{
                     width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
                     borderLeftStyle: 'solid',
@@ -1401,7 +1402,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  M.H
+                  V.Good
                 </td>
               </tr>
               {/* IRE */}
@@ -1456,6 +1457,26 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 >
                   <p className="s10"
                     style={{ paddingLeft: '6pt', paddingRight: '69pt', textIndent: '0px', lineHeight: '22pt',textAlign: 'left' }}>IRE CRE</p>
+                </td>
+                <td
+                  style={{
+                    width:'240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center text-sm align-middle"
+                >
+                  Fair
                 </td>
                 <td
                   style={{
@@ -1539,26 +1560,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center"
-                >
-                  Fair
-                </td>
-                <td
-                  style={{
                     width:'66.667px',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.333px',
@@ -1575,11 +1576,31 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center"
                 >
-                  M.A
+                  V.Good
                 </td>
               </tr>
               {/* CRE */}
               <tr>
+                <td
+                  style={{
+                    width:'240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  -
+                </td>
                 <td
                   style={{
                     width:'52px',
@@ -1643,26 +1664,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 <td
                   style={{
                     width:'61.333px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  -
-                </td>
-                <td
-                  style={{
-                    width:'240px',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.333px',
                     borderTopColor: '#AC4888',
@@ -1755,6 +1756,26 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
+                    width:'240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Very active
+                </td>
+                <td
+                  style={{
                     width:'52px',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.333px',
@@ -1835,26 +1856,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                 </td>
                 <td
                   style={{
-                    width:'240px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle"
-                >
-                  Very active
-                </td>
-                <td
-                  style={{
                     width:'66.667px',
                     borderTopStyle: 'solid',
                     borderTopWidth: '1.333px',
@@ -1871,7 +1872,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   }}
                   className="text-black text-center align-middle"
                 >
-                  O.L
+                  Good
                 </td>
               </tr>
               {/* TOTAL */}
@@ -1915,6 +1916,26 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   >
                     TOTAL
                   </p>
+                </td>
+                <td
+                  style={{
+                    width:'240px',
+                    borderTopStyle: 'solid',
+                    borderTopWidth: '1.333px',
+                    borderTopColor: '#AC4888',
+                    borderLeftStyle: 'solid',
+                    borderLeftWidth: '1.333px',
+                    borderLeftColor: '#AC4888',
+                    borderBottomStyle: 'solid',
+                    borderBottomWidth: '1.333px',
+                    borderBottomColor: '#AC4888',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: '1.333px',
+                    borderRightColor: '#AC4888'
+                  }}
+                  className="text-black text-center align-middle text-sm"
+                >
+                  Needs to put in more effort Needs to put in more effort
                 </td>
                 <td
                   style={{
@@ -1995,26 +2016,6 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
                   className="text-black text-center align-middle"
                 >
                   71
-                </td>
-                <td
-                  style={{
-                    width:'240px',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                  className="text-black text-center align-middle text-sm"
-                >
-                  Needs to put in more effort
                 </td>
                 <td
                   style={{
