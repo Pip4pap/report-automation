@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, styled } from '@mui/material';
+import { TextField, styled, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
 const CustomTextField = styled(TextField)({
   '& input:valid + fieldset': {
@@ -25,6 +25,11 @@ interface UploadSheetProps {
 
 const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedReportType, setSelectedReportType] = useState('');
+
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedReportType(event.target.value);
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -53,10 +58,29 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
       />
       {
         selectedFile &&
-        <p>
+        <p className="text-gray-200">
           <span className="text-xs">Selected file:</span> {selectedFile.name}
         </p>
       }
+      <div className="mt-6">
+        <FormControl>
+          <FormLabel
+            id="demo-radio-buttons-group-label"
+          >
+            <span style={{ color: '#AC4888' }} className="text-xl">Report Type</span>
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="thematic"
+            name="radio-buttons-group"
+            value={selectedReportType}
+            onChange={handleRadioChange}
+          >
+            <FormControlLabel value="thematic" control={<Radio />} label="Thematic (Lower primary)" />
+            <FormControlLabel value="subject" control={<Radio />} label="Subject (Upper primary)" />
+          </RadioGroup>
+        </FormControl>
+      </div>
     </div>
   );
 };

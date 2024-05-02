@@ -29,7 +29,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="font-bold text-5xl mb-3">LAMPS report automation</h1>
+        <h1 className="font-bold text-5xl mb-3 font-sans">LAMPS report automation</h1>
         <UploadSheet onFileChange={handleFileChange} />
       </header>
       <section>
