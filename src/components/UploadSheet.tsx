@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField, styled, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
+import eventBus from "../utils/eventBus";
 
 const CustomTextField = styled(TextField)({
   '& input:valid + fieldset': {
@@ -29,7 +30,7 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedReportType((prevState) => {
-      console.warn(event.target.value); // Access updated value here
+      eventBus.emit('reportTypeEvent', event.target.value);
       return event.target.value;
     });
   };
