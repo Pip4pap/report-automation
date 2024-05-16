@@ -25,10 +25,13 @@ interface UploadSheetProps {
 
 const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [selectedReportType, setSelectedReportType] = useState('');
+  const [selectedReportType, setSelectedReportType] = useState<String | null>('thematic');
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedReportType(event.target.value);
+    setSelectedReportType((prevState) => {
+      console.warn(event.target.value); // Access updated value here
+      return event.target.value;
+    });
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
