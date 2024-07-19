@@ -19,9 +19,12 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
   useEffect(() => {
     const handleReportTypeEvent = (data: string) => {
       setReportTypePrinted(data);
-      console.warn("popup answer", data);
     };
     eventBus.on('reportTypeEvent', handleReportTypeEvent);
+    console.warn(reportTypePrinted);
+    return () => {
+      eventBus.off('reportTypeEvent', handleReportTypeEvent);
+    };
   }, []);
 
   return (
@@ -43,7 +46,12 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
       >
         <CloseIcon />
       </IconButton>
-      
+      {reportTypePrinted === 'thematic' && (
+        <ThematicReport thematicReportData={rowData} />
+      )}
+      {reportTypePrinted === 'subject' && (
+        <SubjectReport subjectReportData={rowData} />
+      )}
     </Dialog>
   );
 }

@@ -7,6 +7,35 @@ interface SubjectReportProps {
 }
 
 const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
+  const getGrade = (score: any) => {
+    // Input validation (optional)
+    if (score < 0 || score > 100) {
+      return "Invalid Score";
+    }
+  
+    switch (true) { // Switch statement with boolean conditions
+      case (score >= 90):
+        return 1;
+      case (score >= 80):
+        return 2;
+      case (score >= 70):
+        return 3;
+      case (score >= 60):
+        return 4;
+      case (score >= 55):
+        return 5;
+      case (score >= 50):
+        return 6;
+      case (score >= 45):
+        return 7;
+      case (score >= 40):
+        return 8;
+      default:
+        return 9;
+    }
+  }
+  
+
   return (
     <div id="report-display-outer-wrap">
       <div id="report-display-inner-wrap" className="flex flex-col items-center justify-center">
@@ -28,9 +57,10 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               className="s1"
               style={{
                 paddingTop: '6.667px',
+                paddingRight: '60px',
                 textIndent: '0px',
-                textAlign: 'left'
-              }}>REPORT CARD FOR P1-P3 (THEMATIC CURRICULUM)</p>
+                textAlign: 'center'
+              }}>TERMINAL REPORT</p>
           </div>
         </section>
 
@@ -39,10 +69,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           {/* Term, date, year */}
           <div
             className="s2 flex justify-between"
-            style={{
-              paddingTop: '5.333px',
-              paddingLeft: '8px',
-            }}>
+            style={{ paddingTop: '5.333px' }}>
             <div className="flex justify-start">
               <span>TERM&nbsp;</span>
               <div
@@ -80,11 +107,8 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           </div>
           {/* Pupil's name, class, enrollment */}
           <div
-            className="s2 flex justify-between"
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '8px',
-            }}
+            className="s2 flex justify-between mt-1"
+            style={{ paddingTop: '8px' }}
           >
             <div className="flex">
               <span>PUPIL’S NAMES&nbsp;</span>
@@ -125,10 +149,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           </div>
           {/* Age, Sex */}
           <div
-            className="s2 flex justify-between"
+            className="s2 flex justify-between mt-1"
             style={{
               paddingTop: '8px',
-              paddingLeft: '8px',
               lineHeight: '145%',
             }}>
             <div className="flex">
@@ -158,10 +181,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           </div>
           {/* Learner Identification Number */}
           <div
-            className="s2 mb-1"
+            className="s2 mb-1 mt-1"
             style={{
               paddingTop: '8px',
-              paddingLeft: '8px',
               textIndent: '0px',
               lineHeight: '145%',
               textAlign: 'left'
@@ -183,24 +205,14 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
         </section>
 
         {/* TABLE */}
-        <table className="w-full">
+        <table className="w-full mt-2">
           {/* Titles */}
           <thead>
             <tr>
               <td
+                rowSpan={2}
                 style={{
-                  width: '28px',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}>
-              </td>
-              <td
-                style={{
-                  width: '148px',
+                  width: '100px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -220,60 +232,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   className="s3"
                   style={{ textAlign: 'center' }}
                 >
-                  LEARNING AREA
+                  SUBJECT
                 </p>
               </td>
               <td
-                style={{
-                  width: '240px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'double',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888',
-                  verticalAlign: 'middle'
-                }}
-              >
-                <p
-                  className="s8"
-                  style={{ textAlign: 'center' }}
-                >
-                  ACHIEVEMENT
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'double',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888',
-                  verticalAlign: 'middle'
-                }}
-                >
-                <p
-                  className="s4"
-                  style={{ textAlign: 'center' }}
-                >
-                  HOLIDAY WORK SCORE %
-                </p>
-              </td>
-              <td
+                colSpan={2}
                 style={{
                   width: '52px',
                   borderTopStyle: 'solid',
@@ -295,9 +258,64 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   className="s4"
                   style={{ textAlign: 'center' }}
                 >
-                  B.O.T SCORE %</p>
+                  HOLIDAY <br /> WORK
+                </p>
+              </td>
+              
+              <td
+                colSpan={2}
+                style={{
+                  width:'52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+                >
+                <p
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  BEGINNING <br /> OF TERM <br /> EXAMS
+                </p>
               </td>
               <td
+                colSpan={2}
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  MID TERM EXAMS
+                </p>
+              </td>
+              <td
+                colSpan={2}
                 style={{
                   width: '52px',
                   borderTopStyle: 'solid',
@@ -322,12 +340,12 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                     textAlign: 'center'
                   }}
                 >
-                  MID TERM SCORES %
+                  END OF <br /> TERM EXAMS
                 </p>
               </td>
               <td
                 style={{
-                  width: '61.333px',
+                  width: '50px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -350,13 +368,15 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                     textAlign: 'center'
                   }}
                 >
-                  END OF TERM SCORES %
+                  REMARKS
                 </p>
-              </td>
-              
+              </td>              
+            </tr>
+
+            <tr>
               <td
                 style={{
-                  width: '66.667px',
+                  width: '60px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -373,47 +393,217 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
               >
                 <p
-                  className="s5"
+                  className="s11"
                   style={{ textAlign: 'center' }}
                 >
-                  COMMENT
+                  EXAM <br /> MARKS <br /> OUT OF 100
                 </p>
               </td>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Mathematics */}
-            <tr>
               <td
                 style={{
-                  width: '28px',
+                  width: '30px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
                   borderLeftStyle: 'solid',
                   borderLeftWidth: '1.333px',
                   borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
+                  borderBottomStyle: 'double',
                   borderBottomWidth: '1.333px',
                   borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
                 }}
               >
                 <p
-                  className="s9"
-                  style={{
-                    paddingTop: '6.667px',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >1.</p>
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  AGG
+                </p>
+              </td>
+
+              <td
+                style={{
+                  width: '60px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s11"
+                  style={{ textAlign: 'center' }}
+                >
+                  EXAM MARKS OUT OF 100
+                </p>
               </td>
               <td
                 style={{
-                  width: '134.667px',
+                  width: '30px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  AGG
+                </p>
+              </td>
+
+              <td
+                style={{
+                  width: '60px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s11"
+                  style={{ textAlign: 'center' }}
+                >
+                  EXAM MARKS OUT OF 100
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '30px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  AGG
+                </p>
+              </td>
+
+              <td
+                style={{
+                  width: '60px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s11"
+                  style={{ textAlign: 'center' }}
+                >
+                  EXAM MARKS OUT OF 100
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '30px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              >
+                <p
+                  className="s4"
+                  style={{ textAlign: 'center' }}
+                >
+                  AGG
+                </p>
+              </td>
+
+              <td
+                style={{
+                  width: '60px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'double',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888',
+                  verticalAlign: 'middle'
+                }}
+              ></td>
+            </tr>
+          </thead>
+          <tbody>
+            {/* English */}
+            <tr>
+              <td
+                style={{
+                  width: '100px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -431,18 +621,19 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 <p
                   className="s10"
                   style={{
-                    paddingTop: '9.333px',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
                     paddingLeft: '6.667px',
                     textIndent: '0px',
                     textAlign: 'left'
                   }}
                 >
-                  MATHEMATICS
+                  ENGLISH
                 </p>
               </td>
               <td
                 style={{
-                  width: '240px',
+                  width: '100px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -458,7 +649,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Not bad
+                71
               </td>
               <td
                 style={{
@@ -478,7 +669,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                69
+                { getGrade(71) }
               </td>
               <td
                 style={{
@@ -518,7 +709,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                78
+                { getGrade(63) }
               </td>
               <td
                 style={{
@@ -542,7 +733,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               </td>
               <td
                 style={{
-                  width: '66.667px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -558,1221 +749,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
-              </td>
-            </tr>
-            {/* Literacy I (Reading) */}
-            <tr>
-              <td
-                style={{
-                  width: '28px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingTop: '11pt',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >2.</p>
-              </td>
-              <td
-                style={{ width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                borderTopColor: '#AC4888',
-                borderLeftStyle: 'solid',
-                borderLeftWidth: '1.333px',
-                borderLeftColor: '#AC4888',
-                borderBottomStyle: 'solid',
-                borderBottomWidth: '1.333px',
-                borderBottomColor: '#AC4888',
-                borderRightStyle: 'solid',
-                borderRightWidth: '1.333px',
-                borderRightColor: '#AC4888'}}
-              >
-                <p
-                  className="s10"
-                  style={{
-                    paddingTop: '3pt',
-                    paddingLeft: '6.667px',
-                    paddingRight: '30pt',
-                    textIndent: '0px',
-                    textAlign: 'left'
-                  }}
-                >
-                  LITERACY I (READING)
-                </p>
+                { getGrade(75) }
               </td>
               <td
                 style={{
-                  width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                More effort needed
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                50
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                51
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                52
-              </td>
-              <td
-                style={{
-                  width:'61.333px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                53
-              </td>
-              <td
-                style={{
-                  width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                Good
-              </td>
-            </tr>
-            {/* Literacy II (Reading) */}
-            <tr>
-              <td
-                style={{
-                  width:'28px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingTop: '12px',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >
-                  3.
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>LITERACY II
-                  (WRITING)</p>
-              </td>
-              <td
-                style={{
-                  width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                Need improvement
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                46
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                47
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                48
-              </td>
-              <td
-                style={{
-                  width:'61.333px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                49
-              </td>
-              <td
-                style={{
-                  width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                V.Good
-              </td>
-            </tr>
-            {/* English */}
-            <tr>
-              <td
-                style={{
-                  width:'28px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingTop: '8pt',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >
-                  4.
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10" style={{ paddingTop: '6pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>ENGLISH</p>
-              </td>
-              <td
-                style={{
-                  width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                Fair
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                60
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                61
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                62
-              </td>
-              <td
-                style={{
-                  width:'61.333px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                64
-              </td>
-              <td
-                style={{
-                  width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                V.Good
-              </td>
-            </tr>
-            {/* Local Language (Luganda) */}
-            <tr>
-              <td
-                style={{
-                  width:'28px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingTop: '14pt',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >
-                  5.
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '6.667px', textIndent: '0px', textAlign: 'left' }}>LOCAL LANGUAGE
-                  (LUGANDA)</p>
-              </td>
-              <td
-                style={{
-                  width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                Excellent
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                84
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                86
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                89
-              </td>
-              <td
-                style={{
-                  width:'61.333px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                91
-              </td>
-              <td
-                style={{
-                  width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                V.Good
-              </td>
-            </tr>
-            {/* CPA (Music/Art/Crafts) */}
-            <tr>
-              <td
-                style={{
-                  width:'28px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >
-                  6.
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10" style={{ paddingTop: '4pt', paddingLeft: '6pt', textIndent: '0px', lineHeight: '14pt',textAlign: 'left' }}>
-                  CPA (MUSIC/ ART/ CRAFTS)</p>
-              </td>
-              <td
-                style={{
-                  width:'240px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                Good
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                70
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                71
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                77
-              </td>
-              <td
-                style={{
-                  width:'61.333px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                79
-              </td>
-              <td
-                style={{
-                  width:'66.667px', borderTopStyle: 'solid',borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                V.Good
-              </td>
-            </tr>
-            {/* IRE */}
-            <tr>
-              <td
-                rowSpan={2}
-                style={{
-                  width: '28px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingLeft: '6.667px',
-                    textIndent: '0px',
-                    textAlign: 'left'
-                  }}
-                >
-                  7.
-                </p>
-              </td>
-              <td
-                rowSpan={2}
-                style={{
-                  width: '101pt',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10"
-                  style={{ paddingLeft: '6pt', paddingRight: '69pt', textIndent: '0px', lineHeight: '22pt',textAlign: 'left' }}>IRE CRE</p>
-              </td>
-              <td
-                style={{
-                  width:'240px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center text-sm align-middle"
-              >
-                Fair
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center"
-              >
-                55
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center"
-              >
-                66
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center"
-              >
-                68
-              </td>
-              <td
-                style={{
-                  width:'61.333px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center"
-              >
-                72
-              </td>
-              <td
-                style={{
-                  width:'66.667px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center"
-              >
-                V.Good
-              </td>
-            </tr>
-            {/* CRE */}
-            <tr>
-              <td
-                style={{
-                  width:'240px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                -
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                -
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                -
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                -
-              </td>
-              <td
-                style={{
-                  width:'61.333px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                -
-              </td>
-              <td
-                style={{
-                  width:'66.667px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                -
-              </td>
-            </tr>
-            {/* PE */}
-            <tr>
-              <td
-                style={{
-                  width:'28px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p
-                  className="s9"
-                  style={{
-                    paddingTop: '2pt',
-                    paddingRight: '1.333px',
-                    textIndent: '0px',
-                    textAlign: 'right'
-                  }}
-                >
-                  8.
-                </p>
-              </td>
-              <td
-                style={{
-                  width:'101pt',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                <p className="s10" style={{ paddingTop: '2pt', paddingLeft: '6pt', textIndent: '0px', textAlign: 'left' }}>PE</p>
-              </td>
-              <td
-                style={{
-                  width:'240px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle text-sm"
-              >
-                Very active
-              </td>
-              <td
-                style={{
-                  width:'52px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                80
-              </td>
-              <td
-                style={{
-                  width:'52px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1792,7 +773,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               </td>
               <td
                 style={{
-                  width:'52px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1808,11 +789,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                82
+                { getGrade(81) }
               </td>
               <td
                 style={{
-                  width:'61.333px',
+                  width: '66.667px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1828,74 +809,45 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                86
-              </td>
-              <td
-                style={{
-                  width:'66.667px',
-                  borderTopStyle: 'solid',
-                  borderTopWidth: '1.333px',
-                  borderTopColor: '#AC4888',
-                  borderLeftStyle: 'solid',
-                  borderLeftWidth: '1.333px',
-                  borderLeftColor: '#AC4888',
-                  borderBottomStyle: 'solid',
-                  borderBottomWidth: '1.333px',
-                  borderBottomColor: '#AC4888',
-                  borderRightStyle: 'solid',
-                  borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'
-                }}
-                className="text-black text-center align-middle"
-              >
-                Good
+                F.Good
               </td>
             </tr>
-            {/* TOTAL */}
+            {/* Mathematics */}
             <tr>
               <td
                 style={{
-                  width:'28px',
+                  width: '100px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
                   borderRightStyle: 'solid',
                   borderRightWidth: '1.333px',
-                  borderRightColor: '#AC4888'}}
-                >
-                </td>
-                <td
-                  style={{
-                    width: '101pt',
-                    borderTopStyle: 'solid',
-                    borderTopWidth: '1.333px',
-                    borderTopColor: '#AC4888',
-                    borderLeftStyle: 'solid',
-                    borderLeftWidth: '1.333px',
-                    borderLeftColor: '#AC4888',
-                    borderBottomStyle: 'solid',
-                    borderBottomWidth: '1.333px',
-                    borderBottomColor: '#AC4888',
-                    borderRightStyle: 'solid',
-                    borderRightWidth: '1.333px',
-                    borderRightColor: '#AC4888'
-                  }}
-                >
+                  borderRightColor: '#AC4888'
+                }}
+              >
                 <p
-                  className="s9"
+                  className="s10"
                   style={{
-                    paddingTop: '6.667px',
-                    paddingLeft: '12px',
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6.667px',
+                    paddingRight: '30pt',
                     textIndent: '0px',
                     textAlign: 'left'
                   }}
                 >
-                  TOTAL
+                  MATHEMATICS
                 </p>
               </td>
               <td
                 style={{
-                  width:'240px',
+                  width: '100px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1911,11 +863,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Needs to put in more effort Needs to put in more effort
+                71
               </td>
               <td
                 style={{
-                  width:'52px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1931,11 +883,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                64
+                { getGrade(71) }
               </td>
               <td
                 style={{
-                  width:'52px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1951,11 +903,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                66
+                63
               </td>
               <td
                 style={{
-                  width:'52px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1971,11 +923,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                70
+                { getGrade(63) }
               </td>
               <td
                 style={{
-                  width:'61.333px',
+                  width: '61.333px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -1990,12 +942,143 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightColor: '#AC4888'
                 }}
                 className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+            {/* Science */}
+            <tr>
+              <td
+                style={{
+                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6.667px',
+                    textIndent: '0px',
+                    textAlign: 'left'
+                  }}>
+                  SCIENCE
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
               >
                 71
               </td>
               <td
                 style={{
-                  width:'66.667px',
+                  width: '52px',
                   borderTopStyle: 'solid',
                   borderTopWidth: '1.333px',
                   borderTopColor: '#AC4888',
@@ -2011,117 +1094,1458 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                {/* Put value here */}
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+            {/* S.S.T */}
+            <tr>
+              <td
+                style={{
+                  width:'101pt', borderTopStyle: 'solid',borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6.667px',
+                    textIndent: '0px',
+                    textAlign: 'left'
+                  }}>
+                  S.S.T
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+            {/* Music */}
+            <tr>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6pt',
+                    textIndent: '0px',
+                    lineHeight: '14pt',
+                    textAlign: 'left'
+                  }}>
+                  MUSIC
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+            {/* Writing */}
+            <tr>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6pt',
+                    paddingRight: '69pt',
+                    textIndent: '0px',
+                    lineHeight: '22pt',
+                    textAlign: 'left'
+                  }}
+                >
+                  WRITING
+                </p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+            {/* Total in 4 */}
+            <tr>
+              <td
+                style={{
+                  width:'100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6pt',
+                    textIndent: '0px',
+                    textAlign: 'left'
+                  }}>TOTAL IN 4</p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+
+            {/* DIVISION */}
+            <tr>
+              <td
+                style={{
+                  width:'100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                <p
+                  className="s10"
+                  style={{
+                    paddingTop: '9px',
+                    paddingBottom: '9px',
+                    paddingLeft: '6pt',
+                    textIndent: '0px',
+                    textAlign: 'left'
+                  }}
+                >DIVISION</p>
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
+              </td>
+            </tr>
+
+            {/* TOTAL */}
+            <tr>
+              <td
+                style={{
+                  width: '100px',
+                  height: '40px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+              </td>
+              <td
+                style={{
+                  width: '100px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle text-sm"
+              >
+                71
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(71) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                63
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(63) }
+              </td>
+              <td
+                style={{
+                  width: '61.333px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                75
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(75) }
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                81
+              </td>
+              <td
+                style={{
+                  width: '52px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                { getGrade(81) }
+              </td>
+              <td
+                style={{
+                  width: '66.667px',
+                  borderTopStyle: 'solid',
+                  borderTopWidth: '1.333px',
+                  borderTopColor: '#AC4888',
+                  borderLeftStyle: 'solid',
+                  borderLeftWidth: '1.333px',
+                  borderLeftColor: '#AC4888',
+                  borderBottomStyle: 'solid',
+                  borderBottomWidth: '1.333px',
+                  borderBottomColor: '#AC4888',
+                  borderRightStyle: 'solid',
+                  borderRightWidth: '1.333px',
+                  borderRightColor: '#AC4888'
+                }}
+                className="text-black text-center align-middle"
+              >
+                F.Good
               </td>
             </tr>
           </tbody>
         </table>
 
         {/* CONCLUSION */}
-        <section className="w-full conclusion">
+        <section className="w-full conclusion pt-3">
           {/* Class teacher's comment */}
           <div
-            style={{ paddingTop: '13.333px', paddingLeft: '12px', textIndent: '0px', textAlign: 'left', lineHeight: '26px' }}
-            className="py-2"
+            style={{ textIndent: '0px', textAlign: 'left', lineHeight: '26px' }}
+            className="py-3 overflow-hidden"
           >
-            <span>CLASS TEACHER’S COMMENT ON LIFE SKILLS AND VALUES (INDICATORS)</span>
+            <span>CLASS TEACHER’S REMARKS</span>
             <span
               style={{
-                width: '750px',
                 borderBottomStyle: 'dotted',
                 borderBottomWidth: '2.667px',
                 borderBottomColor: '#AC4888'
               }}
-              className="-mt-1 pl-2 text-black"
+              className="-mt-1 pl-4 text-black text-medium"
             >
-              <span>He is trying his best and he needs to be encouraged to work harder. He has a lot of potential</span>
-              <span style={{ 'float': 'right' }}>
-                <span
-                  className="pr-3"
-                  style={{
-                    borderBottomStyle: 'none',
-                    borderBottomWidth: '0px',
-                    color: '#AC4888'
-                  }}
-                >
-                  SIGNATURE
-                </span>
-                <span
-                  style={{
-                    width: '280px',
-                    borderBottomStyle: 'dotted',
-                    borderBottomWidth: '2.667px',
-                    borderBottomColor: '#AC4888',
-                    paddingLeft: '200px'
-                  }}
-                  className="-mt-1 text-center text-black overflow-hidden"
-                >
-                  {/* Insert class teacher signature here */}
-                </span>
+              <span>He has a lot of potential and can achieve much if he concentrates in class</span>
+              <span
+                style={{
+                  borderBottomStyle: 'dotted',
+                  borderBottomWidth: '2.667px',
+                  borderBottomColor: '#AC4888',
+                  paddingLeft: '800px'
+                }}
+                className="-mt-1 text-center text-black"
+              >
               </span>
             </span>
           </div>
-          {/* Pupil's conduct */}
-          <div
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              textIndent: '0px',
-              lineHeight: '100%',
-              textAlign: 'left'
-            }}
-            className="py-2"
-          >
-            <div className="flex justify-between">
-              <span>PUPIL’S CONDUCT&nbsp;</span>
-              <span
-                style={{
-                  borderBottomStyle: 'dotted',
-                  borderBottomWidth: '2.667px',
-                  borderBottomColor: '#AC4888'
-                }}
-                className="-mt-1 pl-3 text-black overflow-hidden grow"
-              >
-                He is generally well behaved and keeps good manners.
-              </span>
-            </div>
-          </div>
-          {/* General comments */}
-          <div
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              textIndent: '0px',
-              lineHeight: '100%',
-              textAlign: 'left'
-            }}
-            className="py-2"
-          >
-            <div className="flex justify-between">
-              <span>GENERAL COMMENTS&nbsp;</span>
-              <span
-                style={{
-                  borderBottomStyle: 'dotted',
-                  borderBottomWidth: '2.667px',
-                  borderBottomColor: '#AC4888'
-                }}
-                className="-mt-1 pl-3 text-black overflow-hidden grow"
-              >
-                He is generally well behaved and keeps good manners.
-              </span>
-            </div>
-          </div>
+
           {/* Teacher's name and signature */}
           <div
-            className="flex justify-between py-2"
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              lineHeight: '100%',
-            }}
+            className="flex justify-between py-3"
+            style={{ lineHeight: '100%' }}
           >
             <div className="flex">
-              <span>TEACHER’S NAME&nbsp;</span>
+              <span>CLASS TEACHER’S NAME&nbsp;</span>
               <div
                 style={{
                   width: '370px',
@@ -2129,7 +2553,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
                 Kapyo Diphus
               </div>
@@ -2149,39 +2573,35 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               </div>
             </div>
           </div>
+
           {/* Headteacher's comment */}
           <div
             style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
               textIndent: '0px',
               lineHeight: '100%',
               textAlign: 'left'
             }}
-            className="py-2"
+            className="py-3"
           >
             <div className="flex justify-between">
-              <span>HEADTEACHER’S COMMENT&nbsp;</span>
+              <span>HEADTEACHER’S REMARKS&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 pl-3 text-black overflow-hidden grow"
+                className="-mt-1 pl-3 text-black overflow-hidden grow text-medium"
               >
                 A fair performance and good manners. He will get there.
               </span>
             </div>
           </div>
+
           {/* Headteacher's name and signature */}
           <div
-            className="flex justify-between py-2"
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              lineHeight: '100%',
-            }}>
+            className="flex justify-between py-3"
+            style={{ lineHeight: '100%' }}>
             <div className="flex">
               <span>HEADTEACHER’S NAME&nbsp;</span>
               <div
@@ -2191,7 +2611,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
                 Mangeni Harriet
               </div>
@@ -2211,37 +2631,46 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               </div>
             </div>
           </div>
+                    
           {/* Fees details */}
           <div
-            className="flex justify-between py-2"
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              lineHeight: '100%',
-            }}>
+            className="flex justify-between py-3"
+            style={{ lineHeight: '100%' }}>
             <div className="flex">
-              <span>BALANCE TERM&nbsp;</span>
+              <span>FEES BALANCE&nbsp;</span>
               <div
                 style={{
-                  width: '320px',
+                  width: '200px',
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
                 UGX 0
               </div>
             </div>
             <div className="flex grow">
-              <span>NEXT TERM FEES&nbsp;</span>
+              <span>NEXT TERM FEES:&nbsp;</span>
+              <span>DAY:&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow"
+                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
+              >
+                UGX 550,000
+              </div>
+              <span>BOARDER:&nbsp;</span>
+              <div
+                style={{
+                  borderBottomStyle: 'dotted',
+                  borderBottomWidth: '2.667px',
+                  borderBottomColor: '#AC4888'
+                }}
+                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
               >
                 UGX 550,000
               </div>
@@ -2250,13 +2679,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           {/* Requirements */}
           <div
             style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
               textIndent: '0px',
               lineHeight: '100%',
               textAlign: 'left'
             }}
-            className="py-2"
+            className="py-3"
           >
             <div className="flex justify-between">
               <span>REQUIREMENTS&nbsp;</span>
@@ -2266,7 +2693,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 pl-3 text-black overflow-hidden grow"
+                className="-mt-1 pl-3 text-black overflow-hidden grow text-medium"
               >
                 1 rim of paper, 1 scrubbing brush, 1 broom (outside)
               </span>
@@ -2274,12 +2701,8 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           </div>
           {/* Next term dates */}
           <div
-            className="flex justify-between py-2"
-            style={{
-              paddingTop: '8px',
-              paddingLeft: '12px',
-              lineHeight: '100%',
-            }}>
+            className="flex justify-between py-3"
+            style={{ lineHeight: '100%' }}>
             <div className="flex">
               <span>NEXT TERM BEGINS ON&nbsp;</span>
               <div
@@ -2289,7 +2712,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
                 May 28th, 2024
               </div>
@@ -2302,7 +2725,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow"
+                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
               >
                 August 16th, 2024
               </div>

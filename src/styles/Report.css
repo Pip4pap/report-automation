@@ -138,6 +138,15 @@ h4 {
   font-size: 11.5pt;
 }
 
+.s11 {
+  color: #AC4888;
+  font-family: "Times New Roman", serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 8pt;
+}
+
 p {
   color: #AC4888;
   font-family: Arial, sans-serif;
@@ -169,4 +178,8 @@ tbody {
   font-style: normal;
   text-decoration: none;
   font-size: 14px;
+}
+
+.text-medium {
+  font-size: 1rem;
 }
