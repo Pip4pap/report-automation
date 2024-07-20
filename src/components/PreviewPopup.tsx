@@ -25,7 +25,7 @@ const MyDialog: React.FC<MyDialogProps> = ({ open, onClose, rowData }) => {
     return () => {
       eventBus.off('reportTypeEvent', handleReportTypeEvent);
     };
-  }, []);
+  }, [reportTypePrinted]);
 
   return (
     <Dialog

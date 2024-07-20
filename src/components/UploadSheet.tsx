@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, styled, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 import eventBus from "../utils/eventBus";
 
@@ -27,6 +27,14 @@ interface UploadSheetProps {
 const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedReportType, setSelectedReportType] = useState<String | null>('thematic');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    if (mounted) {
+      eventBus.emit('reportTypeEvent', 'thematic');
+    }
+  }, [mounted]);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedReportType((prevState) => {
