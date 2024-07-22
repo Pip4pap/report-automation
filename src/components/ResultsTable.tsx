@@ -3,6 +3,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import PreviewPopup from './PreviewPopup';
 import domtoimage from 'dom-to-image';
 import jsPDF from 'jspdf'
+import eventBus from '../utils/eventBus';
 import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
@@ -83,7 +84,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
             obj["width"] = 120;
             return obj;
           });
-          tableHeaders.push({
+          tableHeaders.unshift({
             field: 'actions',
             headerName: 'Actions',
             width: 200,
@@ -99,6 +100,16 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       };
       reader.readAsBinaryString(selectedFile);
     }
+
+    const clearTableData = () => {
+      setData([]);
+      setColumns([]);
+    };
+    eventBus.on('reportTypeEvent', clearTableData);
+    return () => {
+      eventBus.off('reportTypeEvent', clearTableData);
+    };
+  
   }, [selectedFile, onTableDataChange]);
 
   return (

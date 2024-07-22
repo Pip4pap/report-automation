@@ -39,6 +39,7 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedReportType((prevState) => {
       eventBus.emit('reportTypeEvent', event.target.value);
+      setSelectedFile(null);
       return event.target.value;
     });
   };
