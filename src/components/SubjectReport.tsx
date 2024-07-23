@@ -7,6 +7,53 @@ interface SubjectReportProps {
 }
 
 const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
+  const currentYear = new Date().getFullYear();
+
+  const formatDate = (dateString: string): string => {
+    // Split the date string into day, month, and year
+    const [day, month, year] = dateString.split("-");
+  
+    // Convert month to ordinal (e.g., 5 -> 5th)
+    const ordinal = getOrdinalSuffix(parseInt(month));
+  
+    // Format the output string
+    return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
+  }
+  
+  const getOrdinalSuffix = (day: number): string => {
+    const suffixes = ["st", "nd", "rd", "th"];
+    const remainder = day % 10;
+  
+    if (remainder === 1 && day !== 11) {
+      return suffixes[0];
+    } else if (remainder === 2 && day !== 12) {
+      return suffixes[1];
+    } else if (remainder === 3 && day !== 13) {
+      return suffixes[2];
+    } else {
+      return suffixes[3];
+    }
+  }
+  
+  const getMonthName = (month: number): string => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+  
+    return monthNames[month - 1];
+  }
+
   const getGrade = (score: any) => {
     // Input validation (optional)
     if (score < 0 || score > 100) {
@@ -80,7 +127,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888',
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >II</div>
+              >{ subjectReportData.Term }</div>
             </div>
             <div className="flex">
               <span className='pr-2'>YEAR</span>
@@ -92,17 +139,20 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="text-center text-black font-normal overflow-hidden"
-              >2024</div>
+              >{ currentYear }</div>
               &nbsp;&nbsp;<span className='pr-2'>DATE</span>
               <div
                 style={{
-                  width: '90px',
+                  width: '170px',
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
                 className="text-center text-black font-normal overflow-hidden"
-              >03-05-2024</div>
+              >
+                {/* {formatDate(subjectReportData.Date)} */}
+                27th December, 2024
+              </div>
             </div>
           </div>
           {/* Pupil's name, class, enrollment */}
@@ -120,7 +170,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >Mwebesa Martin</div>
+              >{ subjectReportData.Name }</div>
             </div>
             <div className="flex">
               <span className='px-2'>CLASS&nbsp;</span>
@@ -132,7 +182,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >P.4</div>
+              >{ subjectReportData.Class }</div>
             </div>
             <div className="flex">
               <span className='px-2'>ENROLMENT&nbsp;</span>
@@ -144,7 +194,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >32</div>
+              >{ subjectReportData.Enrolment }</div>
             </div>
           </div>
           {/* Age, Sex */}
@@ -164,7 +214,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >11 years</div>
+              >{ subjectReportData.Age }</div>
             </div>
             <div className="flex">
               <span>SEX&nbsp;</span>
@@ -176,7 +226,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >Male</div>
+              >{ subjectReportData.Sex }</div>
             </div>
           </div>
           {/* Learner Identification Number */}
@@ -199,7 +249,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              ></div>
+              >{ subjectReportData.LIN }</div>
             </div>
           </div>
         </section>
@@ -649,7 +699,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.English_HW }
               </td>
               <td
                 style={{
@@ -669,7 +719,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.English_HW) }
               </td>
               <td
                 style={{
@@ -689,7 +739,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.English_BOT }
               </td>
               <td
                 style={{
@@ -709,7 +759,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.English_BOT) }
               </td>
               <td
                 style={{
@@ -729,7 +779,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.English_MOT }
               </td>
               <td
                 style={{
@@ -749,7 +799,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.English_MOT) }
               </td>
               <td
                 style={{
@@ -769,7 +819,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.English_EOT }
               </td>
               <td
                 style={{
@@ -789,7 +839,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.English_EOT) }
               </td>
               <td
                 style={{
@@ -809,7 +859,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.English_Comment }
               </td>
             </tr>
             {/* Mathematics */}
@@ -863,7 +913,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Math_HW }
               </td>
               <td
                 style={{
@@ -883,7 +933,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Math_HW) }
               </td>
               <td
                 style={{
@@ -903,7 +953,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Math_BOT }
               </td>
               <td
                 style={{
@@ -923,7 +973,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Math_BOT) }
               </td>
               <td
                 style={{
@@ -943,7 +993,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Math_MOT }
               </td>
               <td
                 style={{
@@ -963,7 +1013,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Math_MOT) }
               </td>
               <td
                 style={{
@@ -983,7 +1033,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Math_EOT }
               </td>
               <td
                 style={{
@@ -1003,7 +1053,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Math_EOT) }
               </td>
               <td
                 style={{
@@ -1023,7 +1073,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Math_Comment }
               </td>
             </tr>
             {/* Science */}
@@ -1074,7 +1124,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Science_HW }
               </td>
               <td
                 style={{
@@ -1094,7 +1144,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Science_HW) }
               </td>
               <td
                 style={{
@@ -1114,7 +1164,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Science_BOT }
               </td>
               <td
                 style={{
@@ -1134,7 +1184,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Science_BOT) }
               </td>
               <td
                 style={{
@@ -1154,7 +1204,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Science_MOT }
               </td>
               <td
                 style={{
@@ -1174,7 +1224,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Science_MOT) }
               </td>
               <td
                 style={{
@@ -1194,7 +1244,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Science_EOT }
               </td>
               <td
                 style={{
@@ -1214,7 +1264,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Science_EOT) }
               </td>
               <td
                 style={{
@@ -1234,7 +1284,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Science_Comment }
               </td>
             </tr>
             {/* S.S.T */}
@@ -1285,7 +1335,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.SST_HW }
               </td>
               <td
                 style={{
@@ -1305,7 +1355,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.SST_HW) }
               </td>
               <td
                 style={{
@@ -1325,7 +1375,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.SST_BOT }
               </td>
               <td
                 style={{
@@ -1345,7 +1395,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.SST_BOT) }
               </td>
               <td
                 style={{
@@ -1365,7 +1415,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.SST_MOT }
               </td>
               <td
                 style={{
@@ -1385,7 +1435,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.SST_MOT) }
               </td>
               <td
                 style={{
@@ -1405,7 +1455,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.SST_EOT }
               </td>
               <td
                 style={{
@@ -1425,7 +1475,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.SST_EOT) }
               </td>
               <td
                 style={{
@@ -1445,7 +1495,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.SST_Comment }
               </td>
             </tr>
             {/* Music */}
@@ -1499,7 +1549,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Music_HW }
               </td>
               <td
                 style={{
@@ -1519,7 +1569,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Music_HW) }
               </td>
               <td
                 style={{
@@ -1539,7 +1589,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Music_BOT }
               </td>
               <td
                 style={{
@@ -1559,7 +1609,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Music_BOT) }
               </td>
               <td
                 style={{
@@ -1579,7 +1629,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Music_MOT }
               </td>
               <td
                 style={{
@@ -1599,7 +1649,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Music_MOT) }
               </td>
               <td
                 style={{
@@ -1619,7 +1669,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Music_EOT }
               </td>
               <td
                 style={{
@@ -1639,7 +1689,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Music_EOT) }
               </td>
               <td
                 style={{
@@ -1659,7 +1709,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Music_Comment }
               </td>
             </tr>
             {/* Writing */}
@@ -1715,7 +1765,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Writing_HW }
               </td>
               <td
                 style={{
@@ -1735,7 +1785,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Writing_HW) }
               </td>
               <td
                 style={{
@@ -1755,7 +1805,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Writing_BOT }
               </td>
               <td
                 style={{
@@ -1775,7 +1825,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Writing_BOT) }
               </td>
               <td
                 style={{
@@ -1795,7 +1845,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Writing_MOT }
               </td>
               <td
                 style={{
@@ -1815,7 +1865,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Writing_MOT) }
               </td>
               <td
                 style={{
@@ -1835,7 +1885,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Writing_EOT }
               </td>
               <td
                 style={{
@@ -1855,7 +1905,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Writing_EOT) }
               </td>
               <td
                 style={{
@@ -1875,7 +1925,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Writing_Comment }
               </td>
             </tr>
             {/* Total in 4 */}
@@ -1926,7 +1976,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Total_HW }
               </td>
               <td
                 style={{
@@ -1946,7 +1996,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Total_HW) }
               </td>
               <td
                 style={{
@@ -1966,7 +2016,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Total_BOT }
               </td>
               <td
                 style={{
@@ -1986,7 +2036,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Total_BOT) }
               </td>
               <td
                 style={{
@@ -2006,7 +2056,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Total_MOT }
               </td>
               <td
                 style={{
@@ -2026,7 +2076,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Total_MOT) }
               </td>
               <td
                 style={{
@@ -2046,7 +2096,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Total_EOT }
               </td>
               <td
                 style={{
@@ -2066,7 +2116,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Total_EOT) }
               </td>
               <td
                 style={{
@@ -2086,7 +2136,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Total_Comment }
               </td>
             </tr>
 
@@ -2139,7 +2189,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Division_HW }
               </td>
               <td
                 style={{
@@ -2159,7 +2209,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Division_HW) }
               </td>
               <td
                 style={{
@@ -2179,7 +2229,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Division_BOT }
               </td>
               <td
                 style={{
@@ -2199,7 +2249,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Division_BOT) }
               </td>
               <td
                 style={{
@@ -2219,7 +2269,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Division_MOT }
               </td>
               <td
                 style={{
@@ -2239,7 +2289,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Division_MOT) }
               </td>
               <td
                 style={{
@@ -2259,7 +2309,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Division_EOT }
               </td>
               <td
                 style={{
@@ -2279,7 +2329,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Division_EOT) }
               </td>
               <td
                 style={{
@@ -2299,11 +2349,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Division_Comment }
               </td>
             </tr>
 
-            {/* TOTAL */}
+            {/* BLANK */}
             <tr>
               <td
                 style={{
@@ -2343,7 +2393,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                71
+                { subjectReportData.Blank_HW }
               </td>
               <td
                 style={{
@@ -2363,7 +2413,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(71) }
+                { getGrade(subjectReportData.Blank_HW) }
               </td>
               <td
                 style={{
@@ -2383,7 +2433,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { subjectReportData.Blank_BOT }
               </td>
               <td
                 style={{
@@ -2403,7 +2453,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(63) }
+                { getGrade(subjectReportData.Blank_BOT) }
               </td>
               <td
                 style={{
@@ -2423,7 +2473,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { subjectReportData.Blank_MOT }
               </td>
               <td
                 style={{
@@ -2443,7 +2493,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(75) }
+                { getGrade(subjectReportData.Blank_MOT) }
               </td>
               <td
                 style={{
@@ -2463,7 +2513,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { subjectReportData.Blank_EOT }
               </td>
               <td
                 style={{
@@ -2483,7 +2533,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(81) }
+                { getGrade(subjectReportData.Blank_EOT) }
               </td>
               <td
                 style={{
@@ -2503,20 +2553,20 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                F.Good
+                { subjectReportData.Blank_Comment }
               </td>
             </tr>
           </tbody>
         </table>
 
         {/* CONCLUSION */}
-        <section className="w-full conclusion pt-3">
+        <section className="w-full conclusion">
           {/* Class teacher's comment */}
           <div
             style={{ textIndent: '0px', textAlign: 'left', lineHeight: '26px' }}
             className="py-3 overflow-hidden"
           >
-            <span>CLASS TEACHER’S REMARKS</span>
+            <span className="font-bold">CLASS TEACHER’S REMARKS</span>
             <span
               style={{
                 borderBottomStyle: 'dotted',
@@ -2525,7 +2575,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               }}
               className="-mt-1 pl-4 text-black text-medium"
             >
-              <span>He has a lot of potential and can achieve much if he concentrates in class</span>
+              <span>{ subjectReportData.Class_Teacher_Comment }</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2545,7 +2595,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             style={{ lineHeight: '100%' }}
           >
             <div className="flex">
-              <span>CLASS TEACHER’S NAME&nbsp;</span>
+              <span className="font-bold">CLASS TEACHER’S NAME&nbsp;</span>
               <div
                 style={{
                   width: '370px',
@@ -2555,11 +2605,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
-                Kapyo Diphus
+                { subjectReportData.Class_Teacher_Name }
               </div>
             </div>
             <div className="flex grow">
-              <span>SIGNATURE&nbsp;</span>
+              <span className="font-bold">SIGNATURE&nbsp;</span>
               <div
                 style={{
                   width: '100%',
@@ -2569,7 +2619,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                {/* Insert teacher's signature here */}
+                { subjectReportData.Class_Teacher_Signature }
               </div>
             </div>
           </div>
@@ -2584,7 +2634,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             className="py-3"
           >
             <div className="flex justify-between">
-              <span>HEADTEACHER’S REMARKS&nbsp;</span>
+              <span className="font-bold">HEADTEACHER’S REMARKS&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2593,7 +2643,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow text-medium"
               >
-                A fair performance and good manners. He will get there.
+                { subjectReportData.Head_Teacher_Comment }
               </span>
             </div>
           </div>
@@ -2603,7 +2653,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             className="flex justify-between py-3"
             style={{ lineHeight: '100%' }}>
             <div className="flex">
-              <span>HEADTEACHER’S NAME&nbsp;</span>
+              <span className="font-bold">HEADTEACHER’S NAME&nbsp;</span>
               <div
                 style={{
                   width: '370px',
@@ -2613,11 +2663,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
-                Mangeni Harriet
+                { subjectReportData.Head_Teacher_Name }
               </div>
             </div>
             <div className="flex grow">
-              <span>SIGNATURE&nbsp;</span>
+              <span className="font-bold">SIGNATURE&nbsp;</span>
               <div
                 style={{
                   width: '100%',
@@ -2627,7 +2677,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                {/* Insert teacher's signature here */}
+                { subjectReportData.Head_Teacher_Signature }
               </div>
             </div>
           </div>
@@ -2637,7 +2687,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             className="flex justify-between py-3"
             style={{ lineHeight: '100%' }}>
             <div className="flex">
-              <span>FEES BALANCE&nbsp;</span>
+              <span className="font-bold">FEES BALANCE&nbsp;</span>
               <div
                 style={{
                   width: '200px',
@@ -2647,12 +2697,12 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
-                UGX 0
+                { subjectReportData.Fees_Balance }
               </div>
             </div>
             <div className="flex grow">
-              <span>NEXT TERM FEES:&nbsp;</span>
-              <span>DAY:&nbsp;</span>
+              <span className="font-bold">NEXT TERM FEES:&nbsp;</span>
+              <span className="font-bold">DAY:&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2661,9 +2711,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow text-medium"
               >
-                UGX 550,000
+                { subjectReportData.Fees_Day }
               </div>
-              <span>BOARDER:&nbsp;</span>
+              <span className="font-bold">BOARDER:&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2672,7 +2722,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow text-medium"
               >
-                UGX 550,000
+                { subjectReportData.Fees_Boarder }
               </div>
             </div>
           </div>
@@ -2686,7 +2736,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             className="py-3"
           >
             <div className="flex justify-between">
-              <span>REQUIREMENTS&nbsp;</span>
+              <span className="font-bold">REQUIREMENTS&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2695,7 +2745,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow text-medium"
               >
-                1 rim of paper, 1 scrubbing brush, 1 broom (outside)
+                { subjectReportData.Requirements }
               </span>
             </div>
           </div>
@@ -2704,7 +2754,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             className="flex justify-between py-3"
             style={{ lineHeight: '100%' }}>
             <div className="flex">
-              <span>NEXT TERM BEGINS ON&nbsp;</span>
+              <span className="font-bold">NEXT TERM BEGINS ON&nbsp;</span>
               <div
                 style={{
                   width: '320px',
@@ -2714,11 +2764,11 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden text-medium"
               >
-                May 28th, 2024
+                { formatDate(subjectReportData.Next_Term_Begins) }
               </div>
             </div>
             <div className="flex grow">
-              <span>ENDS ON&nbsp;</span>
+              <span className="font-bold">ENDS ON&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2727,7 +2777,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow text-medium"
               >
-                August 16th, 2024
+                { formatDate(subjectReportData.Next_Term_Ends) }
               </div>
             </div>
           </div>
