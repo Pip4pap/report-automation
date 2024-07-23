@@ -116,7 +116,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               &nbsp;&nbsp;<span className='pr-2'>DATE</span>
               <div
                 style={{
-                  width: '120px',
+                  width: '170px',
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
@@ -2071,7 +2071,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             style={{ paddingTop: '13.333px', paddingLeft: '12px', textIndent: '0px', textAlign: 'left', lineHeight: '26px' }}
             className="py-2"
           >
-            <span>CLASS TEACHER’S COMMENT ON LIFE SKILLS AND VALUES (INDICATORS)</span>
+            <span className="font-bold">CLASS TEACHER’S COMMENT ON LIFE SKILLS AND VALUES (INDICATORS)</span>
             <span
               style={{
                 width: '750px',
@@ -2084,7 +2084,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               <span>{ thematicReportData.Class_Teacher_Comment }</span>
               <span style={{ 'float': 'right' }}>
                 <span
-                  className="pr-3"
+                  className="pr-3 font-bold"
                   style={{
                     borderBottomStyle: 'none',
                     borderBottomWidth: '0px',
@@ -2120,7 +2120,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             className="py-2"
           >
             <div className="flex justify-between">
-              <span>PUPIL’S CONDUCT&nbsp;</span>
+              <span className="font-bold">PUPIL’S CONDUCT&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2145,7 +2145,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             className="py-2"
           >
             <div className="flex justify-between">
-              <span>GENERAL COMMENTS&nbsp;</span>
+              <span className="font-bold">GENERAL COMMENTS&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2168,7 +2168,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             }}
           >
             <div className="flex">
-              <span>TEACHER’S NAME&nbsp;</span>
+              <span className="font-bold">TEACHER’S NAME&nbsp;</span>
               <div
                 style={{
                   width: '370px',
@@ -2182,7 +2182,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               </div>
             </div>
             <div className="flex grow">
-              <span>SIGNATURE&nbsp;</span>
+              <span className="font-bold">SIGNATURE&nbsp;</span>
               <div
                 style={{
                   width: '100%',
@@ -2208,7 +2208,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             className="py-2"
           >
             <div className="flex justify-between">
-              <span>HEADTEACHER’S COMMENT&nbsp;</span>
+              <span className="font-bold">HEADTEACHER’S COMMENT&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2230,7 +2230,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               lineHeight: '100%',
             }}>
             <div className="flex">
-              <span>HEADTEACHER’S NAME&nbsp;</span>
+              <span className="font-bold">HEADTEACHER’S NAME&nbsp;</span>
               <div
                 style={{
                   width: '370px',
@@ -2244,7 +2244,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               </div>
             </div>
             <div className="flex grow">
-              <span>SIGNATURE&nbsp;</span>
+              <span className="font-bold">SIGNATURE&nbsp;</span>
               <div
                 style={{
                   width: '100%',
@@ -2267,7 +2267,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               lineHeight: '100%',
             }}>
             <div className="flex">
-              <span>BALANCE TERM&nbsp;</span>
+              <span className="font-bold">BALANCE TERM&nbsp;</span>
               <div
                 style={{
                   width: '320px',
@@ -2281,7 +2281,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               </div>
             </div>
             <div className="flex grow">
-              <span>NEXT TERM FEES&nbsp;</span>
+              <span className="font-bold">NEXT TERM FEES&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2306,7 +2306,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
             className="py-2"
           >
             <div className="flex justify-between">
-              <span>REQUIREMENTS&nbsp;</span>
+              <span className="font-bold">REQUIREMENTS&nbsp;</span>
               <span
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2328,7 +2328,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               lineHeight: '100%',
             }}>
             <div className="flex">
-              <span>NEXT TERM BEGINS ON&nbsp;</span>
+              <span className="font-bold">NEXT TERM BEGINS ON&nbsp;</span>
               <div
                 style={{
                   width: '320px',
@@ -2338,11 +2338,11 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                { thematicReportData.Next_Term_Begins }
+                { formatDate(thematicReportData.Next_Term_Begins) }
               </div>
             </div>
             <div className="flex grow">
-              <span>ENDS ON&nbsp;</span>
+              <span className="font-bold">ENDS ON&nbsp;</span>
               <div
                 style={{
                   borderBottomStyle: 'dotted',
@@ -2351,7 +2351,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow"
               >
-                { thematicReportData.Next_Term_Ends  }
+                { formatDate(thematicReportData.Next_Term_Ends) }
               </div>
             </div>
           </div>
