@@ -54,7 +54,29 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
 
   return (
     <div>
-      <h4 className="font-light text-2xl mb-6">
+      {/* Report Type */}
+      <div className="my-6">
+        <FormControl>
+          <FormLabel
+            id="demo-radio-buttons-group-label"
+          >
+            <span style={{ color: '#AC4888' }} className="text-xl">Report Type</span>
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="thematic"
+            name="radio-buttons-group"
+            value={selectedReportType}
+            onChange={handleRadioChange}
+          >
+            <FormControlLabel value="thematic" control={<Radio />} label="Thematic (Lower primary)" />
+            <FormControlLabel value="subject" control={<Radio />} label="Subject (Upper primary)" />
+          </RadioGroup>
+        </FormControl>
+      </div>
+
+      {/* Upload sheet */}
+      <h4 className="font-light text-2xl mt-12 mb-6">
         Upload excel sheet below
       </h4>
       <CustomTextField
@@ -75,25 +97,6 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
           <span className="text-xs">Selected file:</span> {selectedFile.name}
         </p>
       }
-      <div className="mt-6">
-        <FormControl>
-          <FormLabel
-            id="demo-radio-buttons-group-label"
-          >
-            <span style={{ color: '#AC4888' }} className="text-xl">Report Type</span>
-          </FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="thematic"
-            name="radio-buttons-group"
-            value={selectedReportType}
-            onChange={handleRadioChange}
-          >
-            <FormControlLabel value="thematic" control={<Radio />} label="Thematic (Lower primary)" />
-            <FormControlLabel value="subject" control={<Radio />} label="Subject (Upper primary)" />
-          </RadioGroup>
-        </FormControl>
-      </div>
     </div>
   );
 };
