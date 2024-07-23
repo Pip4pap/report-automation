@@ -7,6 +7,53 @@ interface ThematicReportProps {
 }
 
 const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) => {
+  const currentYear = new Date().getFullYear();
+
+  const formatDate = (dateString: string): string => {
+    // Split the date string into day, month, and year
+    const [day, month, year] = dateString.split("-");
+  
+    // Convert month to ordinal (e.g., 5 -> 5th)
+    const ordinal = getOrdinalSuffix(parseInt(month));
+  
+    // Format the output string
+    return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
+  }
+  
+  const getOrdinalSuffix = (day: number): string => {
+    const suffixes = ["st", "nd", "rd", "th"];
+    const remainder = day % 10;
+  
+    if (remainder === 1 && day !== 11) {
+      return suffixes[0];
+    } else if (remainder === 2 && day !== 12) {
+      return suffixes[1];
+    } else if (remainder === 3 && day !== 13) {
+      return suffixes[2];
+    } else {
+      return suffixes[3];
+    }
+  }
+  
+  const getMonthName = (month: number): string => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+  
+    return monthNames[month - 1];
+  }
+
   return (
     <div id="report-display-outer-wrap">
       <div id="report-display-inner-wrap" className="flex flex-col items-center justify-center">
@@ -53,7 +100,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888',
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >II</div>
+              >{ thematicReportData.Term }</div>
             </div>
             <div className="flex">
               <span className='pr-2'>YEAR</span>
@@ -65,17 +112,17 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="text-center text-black font-normal overflow-hidden"
-              >2024</div>
+              >{ currentYear }</div>
               &nbsp;&nbsp;<span className='pr-2'>DATE</span>
               <div
                 style={{
-                  width: '90px',
+                  width: '120px',
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
                 className="text-center text-black font-normal overflow-hidden"
-              >03-05-2024</div>
+              >{ formatDate(thematicReportData.Date) }</div>
             </div>
           </div>
           {/* Pupil's name, class, enrollment */}
@@ -96,7 +143,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >Mwebesa Martin</div>
+              >{ thematicReportData.Name }</div>
             </div>
             <div className="flex">
               <span className='px-2'>CLASS&nbsp;</span>
@@ -108,7 +155,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >P.4</div>
+              >{ thematicReportData.Class }</div>
             </div>
             <div className="flex">
               <span className='px-2'>ENROLMENT&nbsp;</span>
@@ -120,7 +167,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >32</div>
+              >{ thematicReportData.Enrolment }</div>
             </div>
           </div>
           {/* Age, Sex */}
@@ -141,7 +188,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >11 years</div>
+              >{ thematicReportData.Age }</div>
             </div>
             <div className="flex">
               <span>SEX&nbsp;</span>
@@ -153,7 +200,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              >Male</div>
+              >{ thematicReportData.Sex }</div>
             </div>
           </div>
           {/* Learner Identification Number */}
@@ -177,7 +224,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomColor: '#AC4888'
                 }}
                 className="-mt-1 text-center text-black font-normal overflow-hidden"
-              ></div>
+              >{ thematicReportData.LIN }</div>
             </div>
           </div>
         </section>
@@ -458,7 +505,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Not bad
+                { thematicReportData.Math_Achievement }
               </td>
               <td
                 style={{
@@ -478,7 +525,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                69
+                { thematicReportData.Math_HW }
               </td>
               <td
                 style={{
@@ -498,7 +545,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                63
+                { thematicReportData.Math_BOT }
               </td>
               <td
                 style={{
@@ -518,7 +565,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                78
+                { thematicReportData.Math_MOT }
               </td>
               <td
                 style={{
@@ -538,7 +585,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                75
+                { thematicReportData.Math_EOT }
               </td>
               <td
                 style={{
@@ -556,9 +603,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                F.Good
+                { thematicReportData.Math_Comment }
               </td>
             </tr>
             {/* Literacy I (Reading) */}
@@ -632,7 +679,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                More effort needed
+                { thematicReportData.Literacy_I_Achievement }
               </td>
               <td
                 style={{
@@ -652,7 +699,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                50
+                { thematicReportData.Literacy_I_HW }
               </td>
               <td
                 style={{
@@ -672,7 +719,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                51
+                { thematicReportData.Literacy_I_BOT }
               </td>
               <td
                 style={{
@@ -692,7 +739,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                52
+                { thematicReportData.Literacy_I_MOT }
               </td>
               <td
                 style={{
@@ -710,7 +757,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                53
+                { thematicReportData.Literacy_I_EOT }
               </td>
               <td
                 style={{
@@ -726,12 +773,12 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                Good
+                { thematicReportData.Literacy_I_Comment }
               </td>
             </tr>
-            {/* Literacy II (Reading) */}
+            {/* Literacy II (Writing) */}
             <tr>
               <td
                 style={{
@@ -795,7 +842,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Need improvement
+                { thematicReportData.Literacy_II_Achievement }
               </td>
               <td
                 style={{
@@ -815,7 +862,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                46
+                { thematicReportData.Literacy_II_HW }
               </td>
               <td
                 style={{
@@ -835,7 +882,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                47
+                { thematicReportData.Literacy_II_BOT }
               </td>
               <td
                 style={{
@@ -855,7 +902,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                48
+                { thematicReportData.Literacy_II_MOT }
               </td>
               <td
                 style={{
@@ -873,7 +920,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                49
+                { thematicReportData.Literacy_II_EOT }
               </td>
               <td
                 style={{
@@ -889,9 +936,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                V.Good
+                { thematicReportData.Literacy_II_Comment }
               </td>
             </tr>
             {/* English */}
@@ -957,7 +1004,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Fair
+                { thematicReportData.English_Achievement }
               </td>
               <td
                 style={{
@@ -977,7 +1024,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                60
+                { thematicReportData.English_HW }
               </td>
               <td
                 style={{
@@ -997,7 +1044,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                61
+                { thematicReportData.English_BOT }
               </td>
               <td
                 style={{
@@ -1017,7 +1064,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                62
+                { thematicReportData.English_MOT }
               </td>
               <td
                 style={{
@@ -1035,7 +1082,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                64
+                { thematicReportData.English_EOT }
               </td>
               <td
                 style={{
@@ -1051,9 +1098,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                V.Good
+                { thematicReportData.English_Comment }
               </td>
             </tr>
             {/* Local Language (Luganda) */}
@@ -1120,7 +1167,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Excellent
+                { thematicReportData.Local_Language_Achievement }
               </td>
               <td
                 style={{
@@ -1140,7 +1187,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                84
+                { thematicReportData.Local_Language_HW }
               </td>
               <td
                 style={{
@@ -1160,7 +1207,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                86
+                { thematicReportData.Local_Language_BOT }
               </td>
               <td
                 style={{
@@ -1180,7 +1227,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                89
+                { thematicReportData.Local_Language_MOT }
               </td>
               <td
                 style={{
@@ -1198,7 +1245,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                91
+                { thematicReportData.Local_Language_EOT }
               </td>
               <td
                 style={{
@@ -1214,9 +1261,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                V.Good
+                { thematicReportData.Local_Language_Comment }
               </td>
             </tr>
             {/* CPA (Music/Art/Crafts) */}
@@ -1282,7 +1329,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Good
+                { thematicReportData.CPA_Achievement }
               </td>
               <td
                 style={{
@@ -1302,7 +1349,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                70
+                { thematicReportData.CPA_HW }
               </td>
               <td
                 style={{
@@ -1322,7 +1369,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                71
+                { thematicReportData.CPA_BOT }
               </td>
               <td
                 style={{
@@ -1342,7 +1389,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                77
+                { thematicReportData.CPA_MOT }
               </td>
               <td
                 style={{
@@ -1360,7 +1407,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                79
+                { thematicReportData.CPA_EOT }
               </td>
               <td
                 style={{
@@ -1376,9 +1423,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                V.Good
+                { thematicReportData.CPA_Comment }
               </td>
             </tr>
             {/* IRE */}
@@ -1452,7 +1499,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center text-sm align-middle"
               >
-                Fair
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_Achievement : '-' }
               </td>
               <td
                 style={{
@@ -1472,7 +1519,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center"
               >
-                55
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_HW : '-' }
               </td>
               <td
                 style={{
@@ -1492,7 +1539,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center"
               >
-                66
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_BOT : '-' }
               </td>
               <td
                 style={{
@@ -1512,7 +1559,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center"
               >
-                68
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_MOT : '-' }
               </td>
               <td
                 style={{
@@ -1532,7 +1579,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center"
               >
-                72
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_EOT : '-' }
               </td>
               <td
                 style={{
@@ -1550,9 +1597,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center"
+                className="text-black text-center text-sm"
               >
-                V.Good
+                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_Comment : '-' }
               </td>
             </tr>
             {/* CRE */}
@@ -1575,7 +1622,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_Achievement : '-' }
               </td>
               <td
                 style={{
@@ -1595,7 +1642,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_HW : '-' }
               </td>
               <td
                 style={{
@@ -1615,7 +1662,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_BOT : '-' }
               </td>
               <td
                 style={{
@@ -1635,7 +1682,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_MOT : '-' }
               </td>
               <td
                 style={{
@@ -1655,7 +1702,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_EOT : '-' }
               </td>
               <td
                 style={{
@@ -1673,9 +1720,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                -
+                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_Comment : '-' }
               </td>
             </tr>
             {/* PE */}
@@ -1748,7 +1795,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Very active
+                { thematicReportData.PE_Achicevement }
               </td>
               <td
                 style={{
@@ -1768,7 +1815,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                80
+                { thematicReportData.PE_HW }
               </td>
               <td
                 style={{
@@ -1788,7 +1835,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                81
+                { thematicReportData.PE_BOT }
               </td>
               <td
                 style={{
@@ -1808,7 +1855,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                82
+                { thematicReportData.PE_MOT }
               </td>
               <td
                 style={{
@@ -1828,7 +1875,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                86
+                { thematicReportData.PE_EOT }
               </td>
               <td
                 style={{
@@ -1846,9 +1893,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                Good
+                { thematicReportData.PE_Comment }
               </td>
             </tr>
             {/* TOTAL */}
@@ -1911,7 +1958,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                Needs to put in more effort Needs to put in more effort
+                { thematicReportData.Total_Achievement }
               </td>
               <td
                 style={{
@@ -1931,7 +1978,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                64
+                { thematicReportData.Total_HW }
               </td>
               <td
                 style={{
@@ -1951,7 +1998,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                66
+                { thematicReportData.Total_BOT }
               </td>
               <td
                 style={{
@@ -1971,7 +2018,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                70
+                { thematicReportData.Total_MOT }
               </td>
               <td
                 style={{
@@ -1991,7 +2038,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                71
+                { thematicReportData.Total_EOT }
               </td>
               <td
                 style={{
@@ -2009,9 +2056,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-black text-center align-middle text-sm"
               >
-                {/* Put value here */}
+                { thematicReportData.Total_Comment }
               </td>
             </tr>
           </tbody>
@@ -2034,7 +2081,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               }}
               className="-mt-1 pl-2 text-black"
             >
-              <span>He is trying his best and he needs to be encouraged to work harder. He has a lot of potential</span>
+              <span>{ thematicReportData.Class_Teacher_Comment }</span>
               <span style={{ 'float': 'right' }}>
                 <span
                   className="pr-3"
@@ -2056,7 +2103,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   }}
                   className="-mt-1 text-center text-black overflow-hidden"
                 >
-                  {/* Insert class teacher signature here */}
+                  { thematicReportData.Class_Teacher_Signature }
                 </span>
               </span>
             </span>
@@ -2082,7 +2129,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow"
               >
-                He is generally well behaved and keeps good manners.
+                { thematicReportData.Pupil_Conduct }
               </span>
             </div>
           </div>
@@ -2107,7 +2154,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow"
               >
-                He is generally well behaved and keeps good manners.
+                { thematicReportData.General_Conduct }
               </span>
             </div>
           </div>
@@ -2131,7 +2178,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                Kapyo Diphus
+                { thematicReportData.Class_Teacher_Name }
               </div>
             </div>
             <div className="flex grow">
@@ -2145,7 +2192,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                {/* Insert teacher's signature here */}
+                { thematicReportData.Class_Teacher_Signature }
               </div>
             </div>
           </div>
@@ -2170,7 +2217,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow"
               >
-                A fair performance and good manners. He will get there.
+                { thematicReportData.Head_Teacher_Comment }
               </span>
             </div>
           </div>
@@ -2193,7 +2240,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                Mangeni Harriet
+                { thematicReportData.Head_Teacher_Name }
               </div>
             </div>
             <div className="flex grow">
@@ -2207,7 +2254,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                {/* Insert teacher's signature here */}
+                { thematicReportData.Head_Teacher_Signature }
               </div>
             </div>
           </div>
@@ -2230,7 +2277,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                UGX 0
+                { thematicReportData.Balance_Term }
               </div>
             </div>
             <div className="flex grow">
@@ -2243,7 +2290,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow"
               >
-                UGX 550,000
+                { thematicReportData.Next_Term_Fees }
               </div>
             </div>
           </div>
@@ -2268,7 +2315,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow"
               >
-                1 rim of paper, 1 scrubbing brush, 1 broom (outside)
+                { thematicReportData.Requirements }
               </span>
             </div>
           </div>
@@ -2291,7 +2338,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden"
               >
-                May 28th, 2024
+                { thematicReportData.Next_Term_Begins }
               </div>
             </div>
             <div className="flex grow">
@@ -2304,7 +2351,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="-mt-1 text-center text-black overflow-hidden grow"
               >
-                August 16th, 2024
+                { thematicReportData.Next_Term_Ends  }
               </div>
             </div>
           </div>
