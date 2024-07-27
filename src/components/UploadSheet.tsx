@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import IconButton from '@mui/material/IconButton';
+import LooksOneIcon from '@mui/icons-material/LooksOne';
+import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import { TextField, styled, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 import eventBus from "../utils/eventBus";
 
@@ -60,7 +63,12 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
           <FormLabel
             id="demo-radio-buttons-group-label"
           >
-            <span style={{ color: '#AC4888' }} className="text-xl">Report Type</span>
+            <IconButton aria-label="one" style={{ color: '#AC4888' }}>
+              <LooksOneIcon style={{ 'fontSize': '40px' }} />
+            </IconButton>
+            <span style={{ color: '#AC4888' }} className="text-xl">
+              Report Type
+            </span>
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
@@ -76,9 +84,12 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
       </div>
 
       {/* Upload sheet */}
-      <h4 className="font-light text-2xl mt-12 mb-6">
-        Upload excel sheet below
-      </h4>
+      <div style={{ color: '#AC4888' }} className="mt-12 mb-6">
+        <IconButton aria-label="two" style={{ color: '#AC4888' }}>
+          <LooksTwoIcon style={{ 'fontSize': '40px' }} />
+        </IconButton>
+        <span className="text-2xl">Upload excel sheet below</span>
+      </div>
       <CustomTextField
         label="Upload File"
         type="file"
