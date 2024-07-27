@@ -11,6 +11,10 @@ interface ResultsTableProps {
   onTableDataChange: (data: any[]) => void;
 }
 
+interface ColumnWidths {
+  [key: string]: number;
+}
+
 const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataChange }) => {
   const [data, setData] = useState<any[]>([]);
   const [selectedRow, setSelectedRow] = useState<any>(null);
@@ -21,6 +25,118 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
   const handlePreview = (row: any) => {
     setOpenDialog(true);
     setSelectedRow(row);
+  };
+
+  const columnWidths: ColumnWidths = {
+    "Name": 200,
+    "Class": 70,
+    "Date": 120,
+    "Term": 70,
+    "Enrolment": 90,
+    "Age": 60,
+    "Sex": 60,
+    "LIN": 50,
+    "English_HW": 100,
+    "English_BOT": 100,
+    "English_MOT": 100,
+    "English_EOT": 100,
+    "English_Achievement": 160,
+    "English_Comment": 140,
+    "Math_HW": 100,
+    "Math_BOT": 100,
+    "Math_MOT": 100,
+    "Math_EOT": 100,
+    "Math_Achievement": 160,
+    "Math_Comment": 140,
+    "Literacy_I_HW": 120,
+    "Literacy_I_BOT": 120,
+    "Literacy_I_MOT": 120,
+    "Literacy_I_EOT": 120,
+    "Literacy_I_Achievement": 180,
+    "Literacy_I_Comment": 160,
+    "Literacy_II_HW": 120,
+    "Literacy_II_BOT": 120,
+    "Literacy_II_MOT": 120,
+    "Literacy_II_EOT": 120,
+    "Literacy_II_Achievement": 180,
+    "Literacy_II_Comment": 160,
+    "Local_Language_HW": 160,
+    "Local_Language_BOT": 160,
+    "Local_Language_MOT": 160,
+    "Local_Language_EOT": 160,
+    "Local_Language_Achievement": 220,
+    "Local_Language_Comment": 200,
+    "CPA_HW": 100,
+    "CPA_BOT": 100,
+    "CPA_MOT": 100,
+    "CPA_EOT": 100,
+    "CPA_Achievement": 160,
+    "CPA_Comment": 140,
+    "Total_HW": 100,
+    "Total_BOT": 100,
+    "Total_MOT": 100,
+    "Total_EOT": 100,
+    "Total_Achievement": 160,
+    "Total_Comment": 140,
+    "Religious_Subject": 140,
+    "Religious_HW": 120,
+    "Religious_BOT": 120,
+    "Religious_MOT": 120,
+    "Religious_EOT": 120,
+    "Religious_Achievement": 160,
+    "Religious_Comment": 140,
+    "PE_HW": 100,
+    "PE_BOT": 100,
+    "PE_MOT": 100,
+    "PE_EOT": 100,
+    "PE_Achicevement": 160,
+    "PE_Comment": 140,
+    "Science_HW": 100,
+    "Science_BOT": 100,
+    "Science_MOT": 110,
+    "Science_EOT": 100,
+    "Science_Comment": 140,
+    "SST_HW": 100,
+    "SST_BOT": 100,
+    "SST_MOT": 100,
+    "SST_EOT": 100,
+    "SST_Comment": 120,
+    "Music_HW": 100,
+    "Music_BOT": 100,
+    "Music_MOT": 100,
+    "Music_EOT": 100,
+    "Music_Comment": 120,
+    "Writing_HW": 100,
+    "Writing_BOT": 100,
+    "Writing_MOT": 100,
+    "Writing_EOT": 100,
+    "Writing_Comment": 140,
+    "Division_HW": 100,
+    "Division_BOT": 100,
+    "Division_MOT": 100,
+    "Division_EOT": 100,
+    "Division_Comment": 140,
+    "Blank_HW": 100,
+    "Blank_BOT": 100,
+    "Blank_MOT": 100,
+    "Blank_EOT": 100,
+    "Blank_Comment": 120,
+    "Fees_Balance": 140,
+    "Fees_Day": 140,
+    "Fees_Boarder": 140,
+    "Pupil_Conduct": 200,
+    "General_Conduct": 200,
+    "Class_Teacher_Comment": 200,
+    "Class_Teacher_Name": 200,
+    "Class_Teacher_Signature": 200,
+    "Head_Teacher_Comment": 200,
+    "Head_Teacher_Name": 200,
+    "Head_Teacher_Signature": 200,
+    "Balance_Term": 200,
+    "Next_Term_Fees": 200,
+    "Requirements": 200,
+    "Next_Term_Begins": 200,
+    "Next_Term_Ends": 200
   };
 
   // Define handleDownload function to handle the Download button click
@@ -81,13 +197,13 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
             obj["field"] = header;
             // TODO: When using actual form, you will need to split the name below using delimiter selected to get the actual header name
             obj["headerName"] = header;
-            obj["width"] = 120;
+            obj["width"] = columnWidths[header];
             return obj;
           });
           tableHeaders.unshift({
             field: 'actions',
             headerName: 'Actions',
-            width: 200,
+            width: 170,
             renderCell: (params: any) => (
               <div>
                 <button onClick={() => handlePreview(params.row)} className="mr-5 text-primary">Preview</button>
