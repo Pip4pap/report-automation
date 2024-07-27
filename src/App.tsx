@@ -2,11 +2,22 @@ import React, { useState, useEffect, useCallback } from 'react';
 import UploadSheet from './components/UploadSheet';
 import ResultsTable from './components/ResultsTable';
 import eventBus from './utils/eventBus';
+import { styled } from '@mui/material';
+import Button from '@mui/material/Button';
 import './App.css';
+
+const StyledButton = styled(Button)({
+  backgroundColor: '#AC4888',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#922a71',
+  },
+});
 
 const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [rowsInTable, setRowsInTable] = useState<any[]>([]);
+  const [rows, setRows] = useState<any[]>([]);
 
   const handleFileChange = (file: File) => {
     setSelectedFile(file);
@@ -22,13 +33,14 @@ const App: React.FC = () => {
   }, []);
 
   const downloadAllReports = () => {
+    console.log(rowsInTable);
     if (rowsInTable.length > 0) {
-      console.log("Downloading all files")
+      console.log("This was called");
+      setRows([...rowsInTable]);
     }
   }
 
   useEffect(() => {
-    let empty: any[] = [];
     eventBus.on('reportTypeEvent', () => {
       setRowsInTable([]);
     });
@@ -51,11 +63,16 @@ const App: React.FC = () => {
           className="font-bold text-3xl my-3"
         >
           Results ({rowsInTable.length})
-          <button onClick={() => downloadAllReports()} className="ml-6 text-sm text-green-400">Download all</button>
+          &nbsp;
+          <StyledButton variant="contained" onClick={downloadAllReports}>
+            Download All
+          </StyledButton>
         </h2>
         <ResultsTable
+          rows={rows}
           selectedFile={selectedFile}
           onTableDataChange={handleTableDataChange}
+          onDownloadAll={downloadAllReports}
         />
       </section>
     </div>
