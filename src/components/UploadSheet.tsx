@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
-import IconButton from '@mui/material/IconButton';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
-import { TextField, styled, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
+import {
+  TextField,
+  styled,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+  IconButton
+} from '@mui/material';
 import eventBus from "../utils/eventBus";
 
 const CustomTextField = styled(TextField)({
