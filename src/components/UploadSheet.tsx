@@ -12,6 +12,7 @@ import {
   IconButton
 } from '@mui/material';
 import eventBus from "../utils/eventBus";
+import Button from '@mui/material/Button';
 
 const CustomTextField = styled(TextField)({
   '& input:valid + fieldset': {
@@ -29,6 +30,14 @@ const CustomTextField = styled(TextField)({
   '& #validation-outlined-input-label': {
     color: '#E0E3E7'
   }
+});
+
+const StyledButton = styled(Button)({
+  backgroundColor: '#AC4888',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#922a71',
+  },
 });
 
 interface UploadSheetProps {
@@ -61,6 +70,11 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
       setSelectedFile(files[0]);
       onFileChange(files[0])
     }
+  };
+
+  const resetData = () => {
+    eventBus.emit('reportTypeEvent', "thematic");
+    setSelectedFile(null);
   };
 
   return (
@@ -116,6 +130,12 @@ const UploadSheet: React.FC<UploadSheetProps> = ({ onFileChange }) => {
           <span className="text-xs">Selected file:</span> {selectedFile.name}
         </p>
       }
+
+      <div className="mt-12">
+        <StyledButton variant="contained" onClick={resetData}>
+          Clear
+        </StyledButton>
+      </div>
     </div>
   );
 };

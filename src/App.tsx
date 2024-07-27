@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import UploadSheet from './components/UploadSheet';
 import ResultsTable from './components/ResultsTable';
+import eventBus from './utils/eventBus';
 import './App.css';
 
 const App: React.FC = () => {
@@ -25,6 +26,18 @@ const App: React.FC = () => {
       console.log("Downloading all files")
     }
   }
+
+  useEffect(() => {
+    let empty: any[] = [];
+    eventBus.on('reportTypeEvent', () => {
+      setRowsInTable([]);
+    });
+    return () => {
+      eventBus.off('reportTypeEvent', () => {
+        setRowsInTable([]);
+      });
+    };
+  });
 
   return (
     <div className="App">
