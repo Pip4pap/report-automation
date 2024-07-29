@@ -25,9 +25,12 @@ const CustomTextField = styled(TextField)({
   },
   '& input:valid:focus + fieldset': {
     borderLeftWidth: 4,
-    padding: '4px !important', // override inline-style
+    padding: '4px !important',
   },
   '& #validation-outlined-input-label': {
+    color: '#E0E3E7'
+  },
+  '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root': {
     color: '#E0E3E7'
   }
 });
