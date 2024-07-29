@@ -46,7 +46,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
           const pdfWidth = pdf.internal.pageSize.getWidth();
           const pdfHeight = 297;
           pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
-          pdf.save('downloaded-file.pdf');
+          pdf.save(`${row.Name}.pdf`);
         })
         .catch(function (error) {
             console.error('oops, something went wrong!', error);
@@ -65,7 +65,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
       setOpenDialog(true);
       setTimeout(() => {
         const container = document.getElementById("report-display-outer-wrap");
-        console.log(container);
         if (container) {
           domtoimage.toPng(container)
           .then(function (dataUrl) {
@@ -78,11 +77,9 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
             const pdfBlob = pdf.output('blob');
 
             // Add the PDF to the zip file
-            zip.file(`report-${index + 1}.pdf`, pdfBlob);
+            zip.file(`${row.Name}.pdf`, pdfBlob);
 
             count++;
-            console.log(count);
-            console.log(rows.length);
             if (count === rows.length) {
               // All PDFs have been added, generate the zip file
               zip.generateAsync({ type: 'blob' }).then((content) => {
@@ -94,7 +91,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
               console.error('oops, something went wrong!', error);
           });
         }
-      }, 500);
+      }, 1000);
     });
   };
 
