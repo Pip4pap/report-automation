@@ -9,17 +9,15 @@ import eventBus from '../utils/eventBus';
 import * as XLSX from 'xlsx';
 
 interface ResultsTableProps {
-  rows: any[];
   selectedFile: File | null;
   onTableDataChange: (data: any[]) => void;
-  onDownloadAll: (rows: any[]) => void;
 }
 
 interface ColumnWidths {
   [key: string]: number;
 }
 
-const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTableDataChange, onDownloadAll }) => {
+const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataChange }) => {
   const [data, setData] = useState<any[]>([]);
   const [selectedRow, setSelectedRow] = useState<any>(null);
   const [columns, setColumns] = useState<GridColDef[]>([]);
@@ -56,6 +54,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
   };
 
   const downloadAllFiles = (rows: any[]) => {
+    eventBus.emit("showLoader", true);
     const zip = new JSZip();
     let count = 0;
     console.log("Downloading all files now...", rows.length);
@@ -93,6 +92,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
         }
       }, 1000);
     });
+
+    eventBus.emit("showLoader", false);
   };
 
   const handleCloseDialog = () => {
@@ -264,15 +265,17 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, rows, onTable
       setData([]);
       setColumns([]);
     };
-
-    if (rows.length > 0) {
+    const handleDownloadAllEvent = () => {
       downloadAllFiles(data);
-    }
+    };
+
+    eventBus.on('startDownloadAllReports', handleDownloadAllEvent);
     eventBus.on('reportTypeEvent', clearTableData);
     return () => {
-      eventBus.off('reportTypeEvent', clearTableData);
+      eventBus.off('reportTypeEvent');
+      eventBus.off('startDownloadAllReports', handleDownloadAllEvent);
     };
-  }, [selectedFile, rows, onTableDataChange]);
+  }, [data, selectedFile, onTableDataChange]);
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
