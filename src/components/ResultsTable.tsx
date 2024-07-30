@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Box from '@mui/material/Box';
 import PreviewPopup from './PreviewPopup';
 import domtoimage from 'dom-to-image';
 import jsPDF from 'jspdf';
@@ -53,48 +56,59 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     }, 1000);
   };
 
-  const downloadAllFiles = (rows: any[]) => {
-    eventBus.emit("showLoader", true);
-    const zip = new JSZip();
-    let count = 0;
-    console.log("Downloading all files now...", rows.length);
-
-    rows.forEach((row, index) => {
+  const generatePDF = useCallback((row: any): Promise<Blob> => {
+    return new Promise<Blob>((resolve, reject) => {
       setSelectedRow(row);
       setOpenDialog(true);
       setTimeout(() => {
         const container = document.getElementById("report-display-outer-wrap");
         if (container) {
           domtoimage.toPng(container)
-          .then(function (dataUrl) {
-            let img = new Image();
-            img.src = dataUrl;
-            const pdf = new jsPDF();
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = 297;
-            pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            const pdfBlob = pdf.output('blob');
+            .then(function (dataUrl) {
+              let img = new Image();
+              img.src = dataUrl;
+              const pdf = new jsPDF();
+              const pdfWidth = pdf.internal.pageSize.getWidth();
+              const pdfHeight = 297;
+              pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+              const pdfBlob = pdf.output('blob');
 
-            // Add the PDF to the zip file
-            zip.file(`${row.Name}.pdf`, pdfBlob);
-
-            count++;
-            if (count === rows.length) {
-              // All PDFs have been added, generate the zip file
-              zip.generateAsync({ type: 'blob' }).then((content) => {
-                saveAs(content, 'reports.zip');
-              });
-            }
-          })
-          .catch(function (error) {
+              resolve(pdfBlob);
+            })
+            .catch(function (error) {
               console.error('oops, something went wrong!', error);
-          });
+              reject(error);
+            });
+        } else {
+          reject(new Error('Container not found'));
         }
       }, 1000);
     });
+  }, []);
+
+  const downloadAllFiles = useCallback(async (rows: any[]) => {
+    eventBus.emit("showLoader", true);
+    const zip = new JSZip();
+    let count = 0;
+
+    for (const row of rows) {
+      try {
+        const pdfBlob = await generatePDF(row);
+        zip.file(`${row.Name}.pdf`, pdfBlob);
+        count++;
+      } catch (error) {
+        console.error('Error generating PDF for row', row, error);
+      }
+    }
+
+    if (count === rows.length) {
+      zip.generateAsync({ type: 'blob' }).then((content) => {
+        saveAs(content, `${rows[0].Class} reports.zip`);
+      });
+    }
 
     eventBus.emit("showLoader", false);
-  };
+  }, [generatePDF]);
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
@@ -247,12 +261,20 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
           tableHeaders.unshift({
             field: 'actions',
             headerName: 'Actions',
-            width: 170,
+            width: 180,
             renderCell: (params: any) => (
-              <div>
-                <button onClick={() => handlePreview(params.row)} className="mr-5 text-primary">Preview</button>
-                <button onClick={() => handleDownload(params.row)} className="text-success">Download</button>
-              </div>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}
+              >
+                <ButtonGroup size="small" variant="text" aria-label="Basic button group">
+                  <Button onClick={() => handlePreview(params.row)}>Preview</Button>
+                  <Button onClick={() => handleDownload(params.row)}>Download</Button>
+                </ButtonGroup>
+              </Box>
             )
           });
           setColumns(tableHeaders);
@@ -275,7 +297,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       eventBus.off('reportTypeEvent');
       eventBus.off('startDownloadAllReports', handleDownloadAllEvent);
     };
-  }, [data, selectedFile, onTableDataChange]);
+  }, [data, selectedFile, onTableDataChange, downloadAllFiles]);
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
