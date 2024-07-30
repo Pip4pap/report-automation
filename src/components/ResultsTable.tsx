@@ -36,6 +36,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
   const handleDownload = (row: any) => {
     setSelectedRow(row);
     setOpenDialog(true);
+    eventBus.emit("showLoader", true);
     setTimeout(() => {
       const container = document.getElementById("report-display-outer-wrap");
       if (container) {
@@ -54,6 +55,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
         });
       }
     }, 1000);
+    eventBus.emit("showLoader", false);
   };
 
   const generatePDF = useCallback((row: any): Promise<Blob> => {
@@ -101,10 +103,14 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       }
     }
 
-    if (count === rows.length) {
-      zip.generateAsync({ type: 'blob' }).then((content) => {
-        saveAs(content, `${rows[0].Class} reports.zip`);
-      });
+    if (rows.length > 0) {
+      if (count === rows.length) {
+        zip.generateAsync({ type: 'blob' }).then((content) => {
+          saveAs(content, `${rows[0].Class} reports.zip`);
+        });
+      }
+    } else {
+      console.error("Download function cannot read table rows");
     }
 
     eventBus.emit("showLoader", false);
@@ -226,6 +232,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       "Next_Term_Begins": 200,
       "Next_Term_Ends": 200
     };
+    let rowData: any[];
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -246,6 +253,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
             obj["id"] = index;
             return obj
           });
+          rowData = tableData;
           setData(tableData);
           onTableDataChange(tableData);
 
@@ -288,7 +296,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       setColumns([]);
     };
     const handleDownloadAllEvent = () => {
-      downloadAllFiles(data);
+      downloadAllFiles(rowData);
     };
 
     eventBus.on('startDownloadAllReports', handleDownloadAllEvent);
