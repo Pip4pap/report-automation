@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import UploadSheet from './components/UploadSheet';
 import ResultsTable from './components/ResultsTable';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
 import eventBus from './utils/eventBus';
 import { styled } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -19,7 +17,6 @@ const StyledButton = styled(Button)({
 const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [rowsInTable, setRowsInTable] = useState<any[]>([]);
-  const [open, setOpen] = useState<boolean>(false);
 
   const handleFileChange = (file: File) => {
     setSelectedFile(file);
@@ -44,28 +41,15 @@ const App: React.FC = () => {
     eventBus.on('reportTypeEvent', () => {
       setRowsInTable([]);
     });
-    eventBus.on('showLoader', (trigger: boolean) => {
-      console.warn("This was triggered!");
-      setOpen(trigger);
-    });
     return () => {
       eventBus.off('reportTypeEvent', () => {
         setRowsInTable([]);
       });
-      eventBus.off('showLoader', (trigger: boolean) => {
-        setOpen(trigger);
-      });
     };
-  }, [setOpen, setRowsInTable]);
+  }, [setRowsInTable]);
 
   return (
     <div className="App">
-      <Backdrop
-        sx={{ color: '#AC4888', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
       <header className="App-header">
         <h1 className="font-bold text-5xl mb-3 font-sans">LAMPS report automation</h1>
         <UploadSheet onFileChange={handleFileChange} />
