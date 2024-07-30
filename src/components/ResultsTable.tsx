@@ -297,7 +297,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       eventBus.off('reportTypeEvent');
       eventBus.off('startDownloadAllReports', handleDownloadAllEvent);
     };
-  }, [data, selectedFile, onTableDataChange, downloadAllFiles]);
+  }, [selectedFile, onTableDataChange, downloadAllFiles]);
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
