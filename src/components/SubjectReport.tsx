@@ -59,6 +59,13 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
     }, 0);
   }
 
+  const formatToUgandanShillings = (amount: number) => {
+    return new Intl.NumberFormat('en-UG', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
   const getComment = (score: any): string => {
     if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
       return "";
@@ -224,7 +231,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="text-center text-black font-normal overflow-hidden"
+                className="text-center text-orange-600 font-bold overflow-hidden"
               >
                 { formatDate(subjectReportData.Date) }
               </div>
@@ -244,7 +251,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black font-normal overflow-hidden"
+                className="-mt-1 text-center text-blue-500 font-bold overflow-hidden"
               >{ subjectReportData.Name }</div>
             </div>
             <div className="flex">
@@ -288,7 +295,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black font-normal overflow-hidden"
+                className="-mt-1 text-center text-red-600 font-normal overflow-hidden"
               >{ subjectReportData.Age }</div>
             </div>
             <div className="flex">
@@ -2770,9 +2777,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden text-medium"
+                className={`-mt-1 text-center font-bold overflow-hidden text-medium ${subjectReportData.Fees_Balance == 0 ? 'text-black' : 'text-red-600'}`}
               >
-                { subjectReportData.Fees_Balance }
+                UGX { formatToUgandanShillings(subjectReportData.Fees_Balance) }
               </div>
             </div>
             <div className="flex grow">
@@ -2784,9 +2791,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
+                className="-mt-1 text-center text-blue-500 font-bold overflow-hidden grow text-medium"
               >
-                { subjectReportData.Fees_Day }
+                UGX { formatToUgandanShillings(subjectReportData.Fees_Day) }
               </div>
               <span className="font-bold">BOARDER:&nbsp;</span>
               <div
@@ -2795,9 +2802,9 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
+                className="-mt-1 text-center text-blue-500 font-bold overflow-hidden grow text-medium"
               >
-                { subjectReportData.Fees_Boarder }
+                UGX { formatToUgandanShillings(subjectReportData.Fees_Boarder) }
               </div>
             </div>
           </div>
@@ -2837,7 +2844,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden text-medium"
+                className="-mt-1 text-center text-orange-600 font-bold overflow-hidden text-medium"
               >
                 { formatDate(subjectReportData.Next_Term_Begins) }
               </div>
@@ -2850,7 +2857,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow text-medium"
+                className="-mt-1 text-center text-orange-600 font-bold overflow-hidden grow text-medium"
               >
                 { formatDate(subjectReportData.Next_Term_Ends) }
               </div>

@@ -35,6 +35,39 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
     }
   }
 
+  const formatToUgandanShillings = (amount: number) => {
+    return new Intl.NumberFormat('en-UG', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+
+  const getCommentColor = (score: any): string => {
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
+    }
+    switch (true) {
+      case (score >= 90):
+        return "text-red-700";
+      case (score >= 85):
+        return "text-red-500";
+      case (score >= 75):
+        return "text-green-700";
+      case (score >= 70):
+        return "text-green-500";
+      case (score >= 65):
+        return "text-blue-700";
+      case (score >= 55):
+        return "text-blue-500";
+      case (score >= 45):
+        return "text-orange-700";
+      case (score >= 40):
+        return "text-orange-500";
+      default:
+        return "text-black";
+    }
+  }
+
   const getComment = (score: any): string => {
     if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
       return "";
@@ -43,19 +76,21 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
       case (score >= 90):
         return "Excellent";
       case (score >= 85):
-        return "Very Good";
+        return "Very good";
       case (score >= 75):
+        return "Good effort";
+      case (score >= 70):
         return "Good";
       case (score >= 65):
-        return "Fairly Good";
+        return "Fairly good";
       case (score >= 55):
         return "Fair";
       case (score >= 45):
-        return "Quite Fair";
+        return "Quite fair";
       case (score >= 40):
-        return "More Effort";
+        return "More effort";
       default:
-        return "Work Harder";
+        return "Work harder";
     }
   }
 
@@ -164,7 +199,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="text-center text-black font-normal overflow-hidden"
+                className="text-center text-orange-600 font-bold overflow-hidden"
               >{ formatDate(thematicReportData.Date) }</div>
             </div>
           </div>
@@ -185,7 +220,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black font-normal overflow-hidden"
+                className="-mt-1 text-center text-blue-500 font-bold overflow-hidden"
               >{ thematicReportData.Name }</div>
             </div>
             <div className="flex">
@@ -230,7 +265,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black font-normal overflow-hidden"
+                className="-mt-1 text-center text-red-600 font-normal overflow-hidden"
               >{ thematicReportData.Age }</div>
             </div>
             <div className="flex">
@@ -646,7 +681,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.Math_EOT)}`}
               >
                 { getComment(thematicReportData.Math_EOT) }
               </td>
@@ -816,7 +851,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.Literacy_I_EOT)}`}
               >
                 { getComment(thematicReportData.Literacy_I_EOT) }
               </td>
@@ -979,7 +1014,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.Literacy_II_EOT)}`}
               >
                 { getComment(thematicReportData.Literacy_II_EOT) }
               </td>
@@ -1141,7 +1176,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.English_EOT)}`}
               >
                 { getComment(thematicReportData.English_EOT) }
               </td>
@@ -1306,7 +1341,8 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { getComment(thematicReportData.Local_Language_EOT) }
+                {/* TODO: Comments are being done in Luganda and their is no scale yet */}
+                { thematicReportData.Local_Language_EOT }
               </td>
             </tr>
             {/* CPA (Music/Art/Crafts) */}
@@ -1466,7 +1502,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.CPA_EOT)}`}
               >
                 { getComment(thematicReportData.CPA_EOT) }
               </td>
@@ -1640,7 +1676,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center text-sm"
+                className={`text-center text-sm ${getCommentColor(thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_EOT : '-')}`}
               >
                 {thematicReportData.Religious_Subject === 'IRE' ?
                   getComment(thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_EOT : '-')
@@ -1765,7 +1801,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center font-bold align-middle text-sm ${getCommentColor(thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_EOT : '-')}`}
               >
                 {thematicReportData.Religious_Subject === 'CRE' ?
                   getComment(thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_EOT : '-')
@@ -1940,7 +1976,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`text-center align-middle font-bold align-middle text-sm ${getCommentColor(thematicReportData.PE_EOT)}`}
               >
                 { getComment(thematicReportData.PE_EOT) }
               </td>
@@ -2023,7 +2059,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 text-center align-middle"
               >
                 { sumUpColumn('HW') }
               </td>
@@ -2043,7 +2079,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 text-center align-middle"
               >
                 { sumUpColumn('BOT') }
               </td>
@@ -2063,7 +2099,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 text-center align-middle"
               >
                 { sumUpColumn('MOT') }
               </td>
@@ -2083,7 +2119,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 text-center align-middle"
               >
                 { sumUpColumn('EOT') }
               </td>
@@ -2322,9 +2358,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className={`-mt-1 text-center font-bold overflow-hidden ${thematicReportData.Balance_Term === 0 ? 'text-black' : 'text-red-600'}`}
               >
-                { thematicReportData.Balance_Term }
+                UGX { formatToUgandanShillings(thematicReportData.Balance_Term) }
               </div>
             </div>
             <div className="flex grow">
@@ -2335,9 +2371,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow"
+                className="-mt-1 text-center font-bold text-blue-500 overflow-hidden grow"
               >
-                { thematicReportData.Next_Term_Fees }
+                UGX { formatToUgandanShillings(thematicReportData.Next_Term_Fees) }
               </div>
             </div>
           </div>
@@ -2383,7 +2419,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden"
+                className="-mt-1 text-center text-orange-600 font-bold overflow-hidden"
               >
                 { formatDate(thematicReportData.Next_Term_Begins) }
               </div>
@@ -2396,7 +2432,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-black overflow-hidden grow"
+                className="-mt-1 text-center text-orange-600 font-bold overflow-hidden grow"
               >
                 { formatDate(thematicReportData.Next_Term_Ends) }
               </div>
