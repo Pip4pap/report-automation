@@ -35,6 +35,30 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
     }
   }
 
+  const getComment = (score: any): string => {
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
+    }
+    switch (true) {
+      case (score >= 90):
+        return "Excellent";
+      case (score >= 85):
+        return "Very Good";
+      case (score >= 75):
+        return "Good";
+      case (score >= 65):
+        return "Fairly Good";
+      case (score >= 55):
+        return "Fair";
+      case (score >= 45):
+        return "Quite Fair";
+      case (score >= 40):
+        return "More Effort";
+      default:
+        return "Work Harder";
+    }
+  }
+
   const sumUpColumn = (column: string): number => {
     let marksArray = [
       thematicReportData[`Math_${column}`],
@@ -624,7 +648,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.Math_Comment }
+                { getComment(thematicReportData.Math_EOT) }
               </td>
             </tr>
             {/* Literacy I (Reading) */}
@@ -794,7 +818,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.Literacy_I_Comment }
+                { getComment(thematicReportData.Literacy_I_EOT) }
               </td>
             </tr>
             {/* Literacy II (Writing) */}
@@ -957,7 +981,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.Literacy_II_Comment }
+                { getComment(thematicReportData.Literacy_II_EOT) }
               </td>
             </tr>
             {/* English */}
@@ -1119,7 +1143,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.English_Comment }
+                { getComment(thematicReportData.English_EOT) }
               </td>
             </tr>
             {/* Local Language (Luganda) */}
@@ -1282,7 +1306,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.Local_Language_Comment }
+                { getComment(thematicReportData.Local_Language_EOT) }
               </td>
             </tr>
             {/* CPA (Music/Art/Crafts) */}
@@ -1444,7 +1468,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.CPA_Comment }
+                { getComment(thematicReportData.CPA_EOT) }
               </td>
             </tr>
             {/* IRE */}
@@ -1618,7 +1642,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center text-sm"
               >
-                { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_Comment : '-' }
+                {thematicReportData.Religious_Subject === 'IRE' ?
+                  getComment(thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_EOT : '-')
+                  : '-'}
               </td>
             </tr>
             {/* CRE */}
@@ -1741,7 +1767,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_Comment : '-' }
+                {thematicReportData.Religious_Subject === 'CRE' ?
+                  getComment(thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_EOT : '-')
+                  : '-'}
               </td>
             </tr>
             {/* PE */}
@@ -1914,7 +1942,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { thematicReportData.PE_Comment }
+                { getComment(thematicReportData.PE_EOT) }
               </td>
             </tr>
             {/* TOTAL */}

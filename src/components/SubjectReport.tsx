@@ -32,7 +32,6 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
     let totalGrade = grades.reduce((acc, value) => {
       return acc + (typeof value === 'number' ? value : 0);
     }, 0);
-    console.log((getGrade(subjectReportData[`English_${column}`]) === 9));
     if (typeof subjectReportData[`Math_${column}`] !== 'number' || typeof subjectReportData[`English_${column}`] !== 'number' || typeof subjectReportData[`Science_${column}`] !== 'number' || typeof subjectReportData[`SST_${column}`] !== 'number') return "X"
     else if (totalGrade <= 24 && (getGrade(subjectReportData[`Math_${column}`]) === 9 || getGrade(subjectReportData[`English_${column}`]) === 9)) return "3"
     else if (totalGrade >= 4 && totalGrade <= 12) return "1"
@@ -58,6 +57,30 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
       }
       return acc;
     }, 0);
+  }
+
+  const getComment = (score: any): string => {
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
+    }
+    switch (true) {
+      case (score >= 90):
+        return "Excellent";
+      case (score >= 85):
+        return "Very Good";
+      case (score >= 75):
+        return "Good";
+      case (score >= 65):
+        return "Fairly Good";
+      case (score >= 55):
+        return "Fair";
+      case (score >= 45):
+        return "Quite Fair";
+      case (score >= 40):
+        return "More Effort";
+      default:
+        return "Work Harder";
+    }
   }
 
   const sumUpAggregate = (column: string): number => {
@@ -113,7 +136,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
       return "";
     }
   
-    switch (true) { // Switch statement with boolean conditions
+    switch (true) {
       case (score >= 90):
         return 1;
       case (score >= 80):
@@ -203,8 +226,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-center text-black font-normal overflow-hidden"
               >
-                {/* {formatDate(subjectReportData.Date)} */}
-                27th December, 2024
+                { formatDate(subjectReportData.Date) }
               </div>
             </div>
           </div>
@@ -912,7 +934,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.English_Comment }
+                { getComment(subjectReportData.English_EOT) }
               </td>
             </tr>
             {/* Mathematics */}
@@ -1126,7 +1148,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Math_Comment }
+                { getComment(subjectReportData.Math_EOT) }
               </td>
             </tr>
             {/* Science */}
@@ -1337,7 +1359,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Science_Comment }
+                { getComment(subjectReportData.Science_EOT) }
               </td>
             </tr>
             {/* S.S.T */}
@@ -1548,7 +1570,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.SST_Comment }
+                { getComment(subjectReportData.SST_EOT) }
               </td>
             </tr>
             {/* Music */}
@@ -1762,7 +1784,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Music_Comment }
+                { getComment(subjectReportData.Music_EOT) }
               </td>
             </tr>
             {/* Writing */}
@@ -1978,7 +2000,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Writing_Comment }
+                { getComment(subjectReportData.Writing_EOT) }
               </td>
             </tr>
             {/* Total in 4 */}
