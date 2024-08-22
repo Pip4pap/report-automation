@@ -67,19 +67,19 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
       case (score >= 90):
         return "Excellent";
       case (score >= 85):
-        return "Very Good";
+        return "Very good";
       case (score >= 75):
         return "Good";
       case (score >= 65):
-        return "Fairly Good";
+        return "Fairly good";
       case (score >= 55):
         return "Fair";
       case (score >= 45):
-        return "Quite Fair";
+        return "Quite fair";
       case (score >= 40):
-        return "More Effort";
+        return "More effort";
       default:
-        return "Work Harder";
+        return "Work harder";
     }
   }
 
@@ -792,7 +792,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.English_HW) }
               </td>
@@ -832,7 +832,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.English_BOT) }
               </td>
@@ -872,7 +872,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.English_MOT) }
               </td>
@@ -912,7 +912,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.English_EOT) }
               </td>
@@ -1006,7 +1006,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Math_HW) }
               </td>
@@ -1046,7 +1046,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Math_BOT) }
               </td>
@@ -1086,7 +1086,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Math_MOT) }
               </td>
@@ -1126,7 +1126,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Math_EOT) }
               </td>
@@ -1217,7 +1217,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Science_HW) }
               </td>
@@ -1257,7 +1257,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Science_BOT) }
               </td>
@@ -1297,7 +1297,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Science_MOT) }
               </td>
@@ -1337,7 +1337,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Science_EOT) }
               </td>
@@ -1428,7 +1428,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.SST_HW) }
               </td>
@@ -1468,7 +1468,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.SST_BOT) }
               </td>
@@ -1508,7 +1508,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.SST_MOT) }
               </td>
@@ -1548,7 +1548,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.SST_EOT) }
               </td>
@@ -1642,7 +1642,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Music_HW) }
               </td>
@@ -1682,7 +1682,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Music_BOT) }
               </td>
@@ -1722,7 +1722,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Music_MOT) }
               </td>
@@ -1762,7 +1762,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Music_EOT) }
               </td>
@@ -1858,7 +1858,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Writing_HW) }
               </td>
@@ -1898,7 +1898,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Writing_BOT) }
               </td>
@@ -1938,7 +1938,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Writing_MOT) }
               </td>
@@ -1978,7 +1978,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Writing_EOT) }
               </td>
@@ -2069,7 +2069,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { sumUpAggregate("HW") }
               </td>
@@ -2109,7 +2109,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { sumUpAggregate("BOT") }
               </td>
@@ -2149,7 +2149,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { sumUpAggregate("MOT") }
               </td>
@@ -2189,7 +2189,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { sumUpAggregate("EOT") }
               </td>
@@ -2282,7 +2282,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getDivision('HW') }
               </td>
@@ -2322,7 +2322,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getDivision('BOT') }
               </td>
@@ -2362,7 +2362,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getDivision('MOT') }
               </td>
@@ -2402,7 +2402,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getDivision('EOT') }
               </td>
@@ -2486,7 +2486,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Blank_HW) }
               </td>
@@ -2526,7 +2526,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Blank_BOT) }
               </td>
@@ -2566,7 +2566,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Blank_MOT) }
               </td>
@@ -2606,7 +2606,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle"
+                className="text-red-600 font-bold text-center align-middle"
               >
                 { getGrade(subjectReportData.Blank_EOT) }
               </td>
