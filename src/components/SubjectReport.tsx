@@ -19,6 +19,59 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
     // Format the output string
     return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
   }
+
+  const getDivision = (column: string): string => {
+    let marksArray = [
+      subjectReportData[`Math_${column}`],
+      subjectReportData[`English_${column}`],
+      subjectReportData[`Science_${column}`],
+      subjectReportData[`SST_${column}`],
+    ];
+    marksArray = marksArray.filter(value => typeof value === 'number');
+    let grades = marksArray.map(mark => getGrade(mark));
+    let totalGrade = grades.reduce((acc, value) => {
+      return acc + (typeof value === 'number' ? value : 0);
+    }, 0);
+    console.log((getGrade(subjectReportData[`English_${column}`]) === 9));
+    if (typeof subjectReportData[`Math_${column}`] !== 'number' || typeof subjectReportData[`English_${column}`] !== 'number' || typeof subjectReportData[`Science_${column}`] !== 'number' || typeof subjectReportData[`SST_${column}`] !== 'number') return "X"
+    else if (totalGrade <= 24 && (getGrade(subjectReportData[`Math_${column}`]) === 9 || getGrade(subjectReportData[`English_${column}`]) === 9)) return "3"
+    else if (totalGrade >= 4 && totalGrade <= 12) return "1"
+    else if (totalGrade >= 13 && totalGrade <= 24) return "2"
+    else if (totalGrade >= 25 && totalGrade <= 33) return "3"
+    else if (totalGrade >= 34 && totalGrade <= 35) return "4"
+    else if (totalGrade === 36) return "U"
+    else return ""
+  }
+
+  const sumUpColumn = (column: string): number => {
+    let marksArray = [
+      subjectReportData[`Math_${column}`],
+      subjectReportData[`English_${column}`],
+      subjectReportData[`Science_${column}`],
+      subjectReportData[`SST_${column}`],
+      subjectReportData[`Music_${column}`],
+      subjectReportData[`Writing_${column}`],
+    ];
+    return marksArray.reduce((acc, value) => {
+      if (typeof value === 'number') {
+        return acc + value;
+      }
+      return acc;
+    }, 0);
+  }
+
+  const sumUpAggregate = (column: string): number => {
+    let marksArray = [
+      subjectReportData[`Math_${column}`],
+      subjectReportData[`English_${column}`],
+      subjectReportData[`Science_${column}`],
+      subjectReportData[`SST_${column}`],
+    ];
+    let grades = marksArray.map(mark => getGrade(mark));
+    return grades.reduce((acc, value) => {
+      return acc + (typeof value === 'number' ? value : 0);
+    }, 0);
+  }
   
   const getOrdinalSuffix = (day: number): string => {
     const suffixes = ["st", "nd", "rd", "th"];
@@ -56,8 +109,8 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
 
   const getGrade = (score: any) => {
     // Input validation (optional)
-    if (score < 0 || score > 100) {
-      return "Invalid Score";
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
     }
   
     switch (true) { // Switch statement with boolean conditions
@@ -1976,7 +2029,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { subjectReportData.Total_HW }
+                { sumUpColumn('HW') }
               </td>
               <td
                 style={{
@@ -1996,7 +2049,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Total_HW) }
+                { sumUpAggregate("HW") }
               </td>
               <td
                 style={{
@@ -2016,7 +2069,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Total_BOT }
+                { sumUpColumn('BOT') }
               </td>
               <td
                 style={{
@@ -2036,7 +2089,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Total_BOT) }
+                { sumUpAggregate("BOT") }
               </td>
               <td
                 style={{
@@ -2056,7 +2109,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Total_MOT }
+                { sumUpColumn('MOT') }
               </td>
               <td
                 style={{
@@ -2076,7 +2129,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Total_MOT) }
+                { sumUpAggregate("MOT") }
               </td>
               <td
                 style={{
@@ -2096,7 +2149,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Total_EOT }
+                { sumUpColumn('EOT') }
               </td>
               <td
                 style={{
@@ -2116,7 +2169,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Total_EOT) }
+                { sumUpAggregate("EOT") }
               </td>
               <td
                 style={{
@@ -2189,7 +2242,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle text-sm"
               >
-                { subjectReportData.Division_HW }
+                {/* { subjectReportData.Division_HW } */}
               </td>
               <td
                 style={{
@@ -2209,7 +2262,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Division_HW) }
+                { getDivision('HW') }
               </td>
               <td
                 style={{
@@ -2229,7 +2282,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Division_BOT }
+                {/* { subjectReportData.Division_BOT } */}
               </td>
               <td
                 style={{
@@ -2249,7 +2302,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Division_BOT) }
+                { getDivision('BOT') }
               </td>
               <td
                 style={{
@@ -2269,7 +2322,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Division_MOT }
+                {/* { subjectReportData.Division_MOT } */}
               </td>
               <td
                 style={{
@@ -2289,7 +2342,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Division_MOT) }
+                { getDivision('MOT') }
               </td>
               <td
                 style={{
@@ -2309,7 +2362,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { subjectReportData.Division_EOT }
+                {/* { subjectReportData.Division_EOT } */}
               </td>
               <td
                 style={{
@@ -2329,7 +2382,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                 }}
                 className="text-black text-center align-middle"
               >
-                { getGrade(subjectReportData.Division_EOT) }
+                { getDivision('EOT') }
               </td>
               <td
                 style={{
@@ -2354,7 +2407,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
             </tr>
 
             {/* BLANK */}
-            <tr>
+            {/* <tr>
               <td
                 style={{
                   width: '100px',
@@ -2555,7 +2608,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
               >
                 { subjectReportData.Blank_Comment }
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
 
