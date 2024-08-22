@@ -2777,7 +2777,7 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className={`-mt-1 text-center font-bold overflow-hidden text-medium ${subjectReportData.Fees_Balance == 0 ? 'text-black' : 'text-red-600'}`}
+                className={`-mt-1 text-center font-bold overflow-hidden text-medium ${subjectReportData.Fees_Balance === 0 ? 'text-black' : 'text-red-600'}`}
               >
                 UGX { formatToUgandanShillings(subjectReportData.Fees_Balance) }
               </div>
