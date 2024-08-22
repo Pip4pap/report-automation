@@ -34,6 +34,25 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
       return suffixes[3];
     }
   }
+
+  const sumUpColumn = (column: string): number => {
+    let marksArray = [
+      thematicReportData[`Math_${column}`],
+      thematicReportData[`Literacy_I_${column}`],
+      thematicReportData[`Literacy_II_${column}`],
+      thematicReportData[`English_${column}`],
+      thematicReportData[`Local_Language_${column}`],
+      thematicReportData[`CPA_${column}`],
+      thematicReportData[`Religious_${column}`],
+      thematicReportData[`PE_${column}`]
+    ];
+    return marksArray.reduce((acc, value) => {
+      if (typeof value === 'number') {
+        return acc + value;
+      }
+      return acc;
+    }, 0);
+  }
   
   const getMonthName = (month: number): string => {
     const monthNames = [
@@ -1978,7 +1997,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                { thematicReportData.Total_HW }
+                { sumUpColumn('HW') }
               </td>
               <td
                 style={{
@@ -1998,7 +2017,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                { thematicReportData.Total_BOT }
+                { sumUpColumn('BOT') }
               </td>
               <td
                 style={{
@@ -2018,7 +2037,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                { thematicReportData.Total_MOT }
+                { sumUpColumn('MOT') }
               </td>
               <td
                 style={{
@@ -2038,7 +2057,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 }}
                 className="text-black text-center align-middle"
               >
-                { thematicReportData.Total_EOT }
+                { sumUpColumn('EOT') }
               </td>
               <td
                 style={{
