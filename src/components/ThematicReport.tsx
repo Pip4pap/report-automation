@@ -8,6 +8,7 @@ interface ThematicReportProps {
 
 const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) => {
   const currentYear = new Date().getFullYear();
+  const blankComment = "This is a blank comment full of gibbi information just to stretch out the section and put an underline. More";
 
   const formatDate = (dateString: string): string => {
     // Split the date string into day, month, and year
@@ -2164,7 +2165,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
               }}
               className="-mt-1 pl-2 text-black"
             >
-              <span>{ thematicReportData.Class_Teacher_Comment }</span>
+              <span className={`text-base ${thematicReportData.Class_Teacher_Comment ? 'text-black' : 'text-transparent'}`}>
+                {thematicReportData.Class_Teacher_Comment ? thematicReportData.Class_Teacher_Comment : blankComment}
+              </span>
               <span style={{ 'float': 'right' }}>
                 <span
                   className="pr-3 font-bold"
