@@ -133,6 +133,40 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
     return monthNames[month - 1];
   }
 
+  const getLocalLanguageCommentColor = (score: any): string => {
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
+    }
+    switch (true) {
+      case (score >= 80):
+        return "text-red-700";
+      case (score >= 65):
+        return "text-green-700";
+      case (score >= 50):
+        return "text-blue-700";
+      case (score >= 70):
+        return "text-green-500";
+      default:
+        return "text-black";
+    }
+  }
+
+  const getLocalLanguageComment = (score: any): string => {
+    if (score === null || score === undefined || score === "-" || score < 0 || score > 100) {
+      return "";
+    }
+    switch (true) {
+      case (score >= 80):
+        return "Mulungi nnyo";
+      case (score >= 65):
+        return "Mulungi";
+      case (score >= 50):
+        return "Afuba";
+      default:
+        return "Asseemu amaanyi";
+    }
+  };
+
   return (
     <div id="report-display-outer-wrap">
       <div id="report-display-inner-wrap" className="flex flex-col items-center justify-center">
@@ -1340,10 +1374,9 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className={`font-bold text-center align-middle text-sm ${getLocalLanguageCommentColor(thematicReportData.Local_Language_EOT)}`}
               >
-                {/* TODO: Comments are being done in Luganda and their is no scale yet */}
-                { thematicReportData.Local_Language_EOT }
+                { getLocalLanguageComment(thematicReportData.Local_Language_EOT) }
               </td>
             </tr>
             {/* CPA (Music/Art/Crafts) */}
