@@ -15,7 +15,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
     const [day, month, year] = dateString.split("-");
   
     // Convert month to ordinal (e.g., 5 -> 5th)
-    const ordinal = getOrdinalSuffix(parseInt(month));
+    const ordinal = getOrdinalSuffix(parseInt(day));
   
     // Format the output string
     return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
