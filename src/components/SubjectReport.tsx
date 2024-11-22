@@ -9,15 +9,19 @@ interface SubjectReportProps {
 const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
   const currentYear = new Date().getFullYear();
 
-  const formatDate = (dateString: string): string => {
-    // Split the date string into day, month, and year
-    const [day, month, year] = dateString.split("-");
-  
-    // Convert month to ordinal (e.g., 5 -> 5th)
+  const formatDate = (dateString: string): JSX.Element => {
+    if (!dateString) {
+      return <></>;
+    }
+    let [day, month, year] = dateString.split("-");
+    day = parseInt(day).toString();
     const ordinal = getOrdinalSuffix(parseInt(day));
-  
-    // Format the output string
-    return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
+    return (
+      <>
+        {day}
+        <sup>{ordinal}</sup> {getMonthName(parseInt(month))}, {year}
+      </>
+    );
   }
 
   const getDivision = (column: string): string => {
@@ -2833,8 +2837,8 @@ const SubjectReport: React.FC<SubjectReportProps> = ({ subjectReportData }) => {
           </div>
           {/* Next term dates */}
           <div
-            className="flex justify-between py-3"
-            style={{ lineHeight: '100%' }}>
+            className="flex justify-between pb-3 pt-2"
+            style={{ lineHeight: '150%' }}>
             <div className="flex">
               <span className="font-bold">NEXT TERM BEGINS ON&nbsp;</span>
               <div
