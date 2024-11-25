@@ -10,15 +10,19 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
   const currentYear = new Date().getFullYear();
   const blankComment = "This is a blank comment full of gibbi information just to stretch out the section and put an underline. More";
 
-  const formatDate = (dateString: string): string => {
-    // Split the date string into day, month, and year
-    const [day, month, year] = dateString.split("-");
-  
-    // Convert month to ordinal (e.g., 5 -> 5th)
+  const formatDate = (dateString: string): JSX.Element => {
+    if (!dateString) {
+      return <></>;
+    }
+    let [day, month, year] = dateString.split("-");
+    day = parseInt(day).toString();
     const ordinal = getOrdinalSuffix(parseInt(day));
-  
-    // Format the output string
-    return `${day}${ordinal} ${getMonthName(parseInt(month))}, ${year}`;
+    return (
+      <>
+        {day}
+        <sup>{ordinal}</sup> {getMonthName(parseInt(month))}, {year}
+      </>
+    );
   }
   
   const getOrdinalSuffix = (day: number): string => {
