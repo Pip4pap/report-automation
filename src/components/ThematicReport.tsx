@@ -340,7 +340,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderBottomWidth: '2.667px',
                   borderBottomColor: '#AC4888'
                 }}
-                className="-mt-1 text-center text-green-700 font-normal overflow-hidden"
+                className="-mt-1 text-center text-green-900 font-normal overflow-hidden"
               >{ thematicReportData.LIN }</div>
             </div>
           </div>
