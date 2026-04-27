@@ -3,6 +3,8 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import PreviewPopup from './PreviewPopup';
 import domtoimage from 'dom-to-image';
 import jsPDF from 'jspdf';
@@ -25,6 +27,129 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
   const [selectedRow, setSelectedRow] = useState<any>(null);
   const [columns, setColumns] = useState<GridColDef[]>([]);
   const [openDialog, setOpenDialog] = useState(false);
+  const [headerErrors, setHeaderErrors] = useState<string[]>([]);
+  const [missingHeaders, setMissingHeaders] = useState<string[]>([]);
+
+  // Define expected headers based on the application requirements
+  const getExpectedHeaders = () => {
+    const baseHeaders = [
+      'Name', 'Class', 'Date', 'Term', 'Enrolment', 'Age', 'Sex', 'LIN'
+    ];
+    
+    const subjectColumns = ['HW', 'BOT', 'MOT', 'EOT'];
+    const subjectCommentColumns = ['Achievement', 'Comment'];
+    
+    // Subject-specific headers for P4-P7 reports
+    const subjectHeaders = [
+      'English', 'Math', 'Science', 'SST', 'Music', 'Writing'
+    ];
+    
+    // Thematic headers for P1-P3 reports
+    const thematicHeaders = [
+      'Literacy_I', 'Literacy_II', 'Local_Language', 'CPA', 'Religious', 'PE'
+    ];
+    
+    const additionalHeaders = [
+      'Division_HW', 'Division_BOT', 'Division_MOT', 'Division_EOT',
+      'Total_HW', 'Total_BOT', 'Total_MOT', 'Total_EOT', 'Total_Achievement', 'Total_Comment',
+      'Fees_Balance', 'Fees_Day', 'Fees_Boarder',
+      'Pupil_Conduct', 'General_Conduct',
+      'Class_Teacher_Comment', 'Class_Teacher_Name', 'Class_Teacher_Signature',
+      'Head_Teacher_Comment', 'Head_Teacher_Name', 'Head_Teacher_Signature',
+      'Balance_Term', 'Next_Term_Fees', 'Requirements',
+      'Next_Term_Begins', 'Next_Term_Ends', 'Religious_Subject'
+    ];
+    
+    let expectedHeaders = [...baseHeaders];
+    
+    // Add subject-based headers
+    subjectHeaders.forEach(subject => {
+      subjectColumns.forEach(column => {
+        expectedHeaders.push(`${subject}_${column}`);
+      });
+      subjectCommentColumns.forEach(column => {
+        expectedHeaders.push(`${subject}_${column}`);
+      });
+    });
+    
+    // Add thematic headers
+    thematicHeaders.forEach(subject => {
+      subjectColumns.forEach(column => {
+        expectedHeaders.push(`${subject}_${column}`);
+      });
+      subjectCommentColumns.forEach(column => {
+        expectedHeaders.push(`${subject}_${column}`);
+      });
+    });
+    
+    expectedHeaders.push(...additionalHeaders);
+    
+    return expectedHeaders;
+  };
+
+  const validateHeaders = useCallback((actualHeaders: string[]) => {
+    const expectedHeaders = getExpectedHeaders();
+    const errors: string[] = [];
+    const missing: string[] = [];
+    
+    // Check for critical missing headers (always required)
+    const criticalHeaders = ['Name', 'Class', 'Date', 'Term'];
+    criticalHeaders.forEach(header => {
+      if (!actualHeaders.includes(header)) {
+        missing.push(header);
+        errors.push(`Critical header missing: "${header}"`);
+      }
+    });
+    
+    // Check for potential typos in actual headers
+    actualHeaders.forEach(actualHeader => {
+      if (!expectedHeaders.includes(actualHeader)) {
+        // Try to find similar headers (simple similarity check)
+        const similar = expectedHeaders.find(expected => 
+          expected.toLowerCase().includes(actualHeader.toLowerCase()) ||
+          actualHeader.toLowerCase().includes(expected.toLowerCase()) ||
+          levenshteinDistance(expected.toLowerCase(), actualHeader.toLowerCase()) <= 2
+        );
+        
+        if (similar) {
+          errors.push(`Header "${actualHeader}" might be misspelled. Did you mean "${similar}"?`);
+        } else {
+          errors.push(`Unexpected header: "${actualHeader}"`);
+        }
+      }
+    });
+    
+    return { errors, missing };
+  }, []);
+  
+  // Simple Levenshtein distance function for similarity checking
+  const levenshteinDistance = (str1: string, str2: string): number => {
+    const matrix = [];
+    
+    for (let i = 0; i <= str2.length; i++) {
+      matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= str1.length; j++) {
+      matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= str2.length; i++) {
+      for (let j = 1; j <= str1.length; j++) {
+        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          );
+        }
+      }
+    }
+    
+    return matrix[str2.length][str1.length];
+  };
 
   // Define handlePreview function to handle the Preview button click
   const handlePreview = (row: any) => {
@@ -245,6 +370,12 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
           const parsedData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
           let tableData = parsedData.slice(1);
           const headers: any = parsedData[0];
+          
+          // Validate headers
+          const { errors, missing } = validateHeaders(headers);
+          setHeaderErrors(errors);
+          setMissingHeaders(missing);
+          
           tableData = tableData.map((row: any, index: number) => {
             const obj: any = {};
             headers.forEach((header: string, index: number) => {
@@ -261,7 +392,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
           const tableHeaders = headers.map((header: string) => {
             const obj: any = {};
             obj["field"] = header;
-            // TODO: When using actual form, you will need to split the name below using delimiter selected to get the actual header name
             obj["headerName"] = header;
             obj["width"] = columnWidths[header];
             return obj;
@@ -294,6 +424,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     const clearTableData = () => {
       setData([]);
       setColumns([]);
+      setHeaderErrors([]);
+      setMissingHeaders([]);
     };
     const handleDownloadAllEvent = () => {
       downloadAllFiles(rowData);
@@ -305,10 +437,46 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
       eventBus.off('reportTypeEvent');
       eventBus.off('startDownloadAllReports', handleDownloadAllEvent);
     };
-  }, [selectedFile, onTableDataChange, downloadAllFiles]);
+  }, [selectedFile, onTableDataChange, downloadAllFiles, validateHeaders]);
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
+      {/* Header Validation Warnings */}
+      {(headerErrors.length > 0 || missingHeaders.length > 0) && (
+        <Box sx={{ mb: 2 }}>
+          <Alert severity="warning">
+            <AlertTitle>Excel Header Issues Detected</AlertTitle>
+            {missingHeaders.length > 0 && (
+              <div>
+                <strong>Missing Critical Headers:</strong>
+                <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                  {missingHeaders.map((header, index) => (
+                    <li key={index}>{header}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {headerErrors.length > 0 && (
+              <div>
+                <strong>Header Issues:</strong>
+                <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                  {headerErrors.slice(0, 10).map((error, index) => (
+                    <li key={index}>{error}</li>
+                  ))}
+                  {headerErrors.length > 10 && (
+                    <li>... and {headerErrors.length - 10} more issues</li>
+                  )}
+                </ul>
+              </div>
+            )}
+            <div style={{ marginTop: '12px', fontSize: '0.9em' }}>
+              <strong>Tip:</strong> Make sure your Excel file headers match exactly what the system expects. 
+              Check spelling, capitalization, and underscores in header names.
+            </div>
+          </Alert>
+        </Box>
+      )}
+      
       <DataGrid
         rows={data}
         columns={columns}
