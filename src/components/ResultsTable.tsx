@@ -443,13 +443,23 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
     <div style={{ height: '100%', width: '100%' }}>
       {/* Header Validation Warnings */}
       {(headerErrors.length > 0 || missingHeaders.length > 0) && (
-        <Box sx={{ mb: 2 }}>
-          <Alert severity="warning">
-            <AlertTitle>Excel Header Issues Detected</AlertTitle>
+        <Box sx={{ mb: 2, width: '100%' }}>
+          <Alert
+            severity="warning"
+            sx={{
+              width: '100%',
+              '& .MuiAlert-message': {
+                flex: 1,
+                width: '100%',
+                textAlign: 'center'
+              }
+            }}
+          >
+            <AlertTitle sx={{ textAlign: 'center' }}>Excel Header Issues Detected</AlertTitle>
             {missingHeaders.length > 0 && (
-              <div>
+              <div style={{ width: '100%' }}>
                 <strong>Missing Critical Headers:</strong>
-                <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                <ul style={{ margin: '8px 0', paddingLeft: 0, listStylePosition: 'inside' }}>
                   {missingHeaders.map((header, index) => (
                     <li key={index}>{header}</li>
                   ))}
@@ -457,9 +467,9 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
               </div>
             )}
             {headerErrors.length > 0 && (
-              <div>
+              <div style={{ width: '100%' }}>
                 <strong>Header Issues:</strong>
-                <ul style={{ margin: '8px 0', paddingLeft: '20px' }}>
+                <ul style={{ margin: '8px 0', paddingLeft: 0, listStylePosition: 'inside' }}>
                   {headerErrors.slice(0, 10).map((error, index) => (
                     <li key={index}>{error}</li>
                   ))}
@@ -470,8 +480,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
               </div>
             )}
             <div style={{ marginTop: '12px', fontSize: '0.9em' }}>
-              <strong>Tip:</strong> Make sure your Excel file headers match exactly what the system expects. 
-              Check spelling, capitalization, and underscores in header names.
+              <strong>Tip:</strong> <i>Make sure your Excel file headers match exactly what the system expects.</i> 
+              <i>Check spelling, capitalization, and underscores in header names.</i>
             </div>
           </Alert>
         </Box>
