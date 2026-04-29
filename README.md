@@ -1,7 +1,6 @@
 # Getting Started with LAMPS Report Automation
 The purpose of this tool is to automatically print reports of pupils (LAMPS pupils) by drawing from an Excel sheet of their marks and other pieces of data.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The production version is currently hosted [here](https://velvety-licorice-5ef2e3.netlify.app/)
 
 ## Available Scripts
 
