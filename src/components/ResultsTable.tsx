@@ -481,7 +481,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ selectedFile, onTableDataCh
             )}
             <div style={{ marginTop: '12px', fontSize: '0.9em' }}>
               <strong>Tip:</strong> <i>Make sure your Excel file headers match exactly what the system expects.</i> 
-              <i>Check spelling, capitalization, and underscores in header names.</i>
+              &nbsp;<i>Check spelling, capitalization, and underscores in header names.</i>
             </div>
           </Alert>
         </Box>

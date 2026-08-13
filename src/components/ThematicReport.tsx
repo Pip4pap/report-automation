@@ -2273,7 +2273,8 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                 style={{
                   borderBottomStyle: 'dotted',
                   borderBottomWidth: '2.667px',
-                  borderBottomColor: '#AC4888'
+                  borderBottomColor: '#AC4888',
+                  color: 'green'
                 }}
                 className="-mt-1 pl-3 text-black overflow-hidden grow"
               >
