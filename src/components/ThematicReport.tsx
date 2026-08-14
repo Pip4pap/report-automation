@@ -620,7 +620,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-red-700 text-center align-middle text-sm"
               >
                 { thematicReportData.Math_Achievement }
               </td>
@@ -794,7 +794,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-blue-700 text-center align-middle text-sm"
               >
                 { thematicReportData.Literacy_I_Achievement }
               </td>
@@ -957,7 +957,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-green-700 text-center align-middle text-sm"
               >
                 { thematicReportData.Literacy_II_Achievement }
               </td>
@@ -1119,7 +1119,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-amber-700 text-center align-middle text-sm"
               >
                 { thematicReportData.English_Achievement }
               </td>
@@ -1282,7 +1282,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-teal-700 text-center align-middle text-sm"
               >
                 { thematicReportData.Local_Language_Achievement }
               </td>
@@ -1444,7 +1444,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-pink-700 text-center align-middle text-sm"
               >
                 { thematicReportData.CPA_Achievement }
               </td>
@@ -1614,7 +1614,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center text-sm align-middle"
+                className="text-indigo-700 text-center text-sm align-middle"
               >
                 { thematicReportData.Religious_Subject==='IRE' ? thematicReportData.Religious_Achievement : '-' }
               </td>
@@ -1739,7 +1739,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-indigo-700 text-center align-middle text-sm"
               >
                 { thematicReportData.Religious_Subject==='CRE' ? thematicReportData.Religious_Achievement : '-' }
               </td>
@@ -1914,7 +1914,7 @@ const ThematicReport: React.FC<ThematicReportProps> = ({ thematicReportData }) =
                   borderRightWidth: '1.333px',
                   borderRightColor: '#AC4888'
                 }}
-                className="text-black text-center align-middle text-sm"
+                className="text-orange-700 text-center align-middle text-sm"
               >
                 { thematicReportData.PE_Achicevement }
               </td>
